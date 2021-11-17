@@ -1,5 +1,13 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Platform,
+  Dimensions,
+} from 'react-native';
+import SvgIcon from '../../utils/SvgIcon';
 
 export interface Category {
   title: string;
@@ -14,11 +22,26 @@ interface Props {
 
 const CategoryContainer = ({item}: Props) => {
   return (
-    <View style={styles.firstView}>
-      <TouchableOpacity>
-        <Text style={styles.title}>{item.title}</Text>
-      </TouchableOpacity>
-    </View>
+    <TouchableOpacity>
+      <View style={styles.firstView}>
+        <View>
+          {item.children?.length ? (
+            <SvgIcon
+              name="downArrow"
+              width={12}
+              height={6}
+              viewBox="0 0 10 6"
+              style={styles.icon}
+            />
+          ) : (
+            <></>
+          )}
+        </View>
+        <View>
+          <Text style={styles.title}>{item.title}</Text>
+        </View>
+      </View>
+    </TouchableOpacity>
   );
 };
 
@@ -28,17 +51,23 @@ const styles = StyleSheet.create({
     height: 52,
     backgroundColor: '#ffffff',
     margin: 1,
-    alignItems: 'flex-end',
-    justifyContent: 'center',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    flexDirection: 'row',
   },
   title: {
     fontSize: 17,
-    fontWeight: '600',
+    fontWeight: Platform.select({ios: '900', android: '900'}),
     fontStyle: 'normal',
+    fontFamily: 'NarkissBlock-Regular',
     lineHeight: 18,
     letterSpacing: 0.1,
     textAlign: 'right',
     color: '#4e4e4e',
+    right: 10,
+  },
+  icon: {
+    left: Dimensions.get('screen').width * 0.06,
   },
 });
 

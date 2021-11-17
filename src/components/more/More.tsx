@@ -10,6 +10,7 @@ import {
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {useDispatch, useSelector} from 'react-redux';
 import {thunk} from '../../redux/app';
+import SvgIcon from '../../utils/SvgIcon';
 import CategoryContainer, {Category} from './CategoryContainer';
 
 function More() {
@@ -37,6 +38,14 @@ function More() {
           <Text>I am a spinner</Text>
         )}
       </View>
+      <View style={styles.madeByMoveo}>
+        <SvgIcon
+          name="madeByMoveo"
+          viewBox="0 0 182 15"
+          height={16}
+          width={182}
+        />
+      </View>
     </SafeAreaView>
   );
 }
@@ -50,7 +59,12 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
   },
   list: {
-    width: '100%',
+    width: Dimensions.get('screen').width,
+  },
+  madeByMoveo: {
+    margin: 'auto',
+    alignItems: 'center',
+    marginTop: 30,
   },
 });
 
