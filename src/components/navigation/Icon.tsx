@@ -1,5 +1,12 @@
 import React from 'react';
-import {Image, Text, View, StyleSheet, Dimensions} from 'react-native';
+import {
+  Image,
+  Text,
+  View,
+  StyleSheet,
+  Dimensions,
+  Platform,
+} from 'react-native';
 import Colors from '../../constants/colors';
 import SvgIcon from '../../utils/SvgIcon';
 
@@ -25,6 +32,7 @@ const Icon = ({focused, image, label, iconSize, viewBox}: Props) => {
       <Text
         style={{
           color: focused ? Colors.WHITE_TWO : '#8b8b8b',
+          marginTop: Platform.OS === 'ios' ? 5 : 1,
         }}>
         {label}
       </Text>

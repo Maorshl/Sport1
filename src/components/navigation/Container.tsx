@@ -1,5 +1,5 @@
 import React, {ReactChildren} from 'react';
-import {Dimensions, StyleSheet, View} from 'react-native';
+import {Dimensions, Platform, StyleSheet, View} from 'react-native';
 import NavbarButton from './NavbarButton';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
@@ -24,6 +24,7 @@ const Container = () => {
           },
           tabBarStyle: {
             backgroundColor: 'rgb(20, 20, 20)',
+            paddingTop: 10,
           },
           tabBarShowLabel: false,
         }}>
@@ -140,7 +141,7 @@ const Container = () => {
                   label="ראשי"
                   focused={focused}
                   iconSize={{
-                    height: Dimensions.get('screen').height * 0.02,
+                    height: Dimensions.get('screen').height * 0.022,
                     width: 20,
                   }}
                   viewBox="0 0 15 16"
@@ -151,7 +152,7 @@ const Container = () => {
                   label="ראשי"
                   focused={focused}
                   iconSize={{
-                    height: Dimensions.get('screen').height * 0.02,
+                    height: Dimensions.get('screen').height * 0.022,
                     width: 20,
                   }}
                   viewBox="0 0 15 16"

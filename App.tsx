@@ -24,13 +24,17 @@ const activeHomeIcon = require('./src/assets/activeHomeIcon.png');
 const inactiveHomeIcon = require('./src/assets/inactiveHomeIcon.png');
 import Navigator from './src/components/navigation/Container';
 import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
+import store from './src/redux/store';
+import {Provider} from 'react-redux';
 const Tab = createBottomTabNavigator();
 
 const App = () => {
   return (
-    <SafeAreaProvider>
-      <Navigator />
-    </SafeAreaProvider>
+    <Provider store={store}>
+      <SafeAreaProvider>
+        <Navigator />
+      </SafeAreaProvider>
+    </Provider>
   );
 };
 
