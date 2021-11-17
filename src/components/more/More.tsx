@@ -16,7 +16,7 @@ import CategoryContainer, {Category} from './CategoryContainer';
 function More() {
   const dispatch = useDispatch();
   const categories = useSelector(
-    (state: {app: {categories: []}}) => state.app.categories,
+    (state: {app: {categories: Category[]}}) => state.app.categories,
   );
   useEffect(() => {
     dispatch(thunk());
@@ -31,20 +31,14 @@ function More() {
             style={styles.list}
             contentContainerStyle={styles.listChild}
             data={categories}
-            renderItem={CategoryContainer}
+            renderItem={RenderItem}
             keyExtractor={item => item.id}
+            ListFooterComponentStyle={styles.madeByMoveo}
+            ListFooterComponent={ListFooterComponent}
           />
         ) : (
           <Text>I am a spinner</Text>
         )}
-      </View>
-      <View style={styles.madeByMoveo}>
-        <SvgIcon
-          name="madeByMoveo"
-          viewBox="0 0 182 15"
-          height={16}
-          width={182}
-        />
       </View>
     </SafeAreaView>
   );
@@ -65,7 +59,23 @@ const styles = StyleSheet.create({
     margin: 'auto',
     alignItems: 'center',
     marginTop: 30,
+    alignSelf: 'center',
   },
 });
 
+const RenderItem = ({item}: {item: Category}) => {
+  return <CategoryContainer item={item} />;
+};
+const ListFooterComponent = ({item}: {item: Category}) => {
+  return (
+    <View>
+      <SvgIcon
+        name="madeByMoveo"
+        viewBox="0 0 182 15"
+        height={16}
+        width={182}
+      />
+    </View>
+  );
+};
 export default More;

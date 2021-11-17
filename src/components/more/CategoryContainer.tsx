@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -6,8 +6,12 @@ import {
   StyleSheet,
   Platform,
   Dimensions,
+  FlatList,
+  Animated,
 } from 'react-native';
 import SvgIcon from '../../utils/SvgIcon';
+import Colors from '../../constants/colors';
+import SubCategory from './SubCategory';
 
 export interface Category {
   title: string;
@@ -21,27 +25,45 @@ interface Props {
 }
 
 const CategoryContainer = ({item}: Props) => {
+  const [isPressed, setIsPressed] = useState<boolean>(false);
+
   return (
-    <TouchableOpacity>
-      <View style={styles.firstView}>
-        <View>
-          {item.children?.length ? (
-            <SvgIcon
-              name="downArrow"
-              width={12}
-              height={6}
-              viewBox="0 0 10 6"
-              style={styles.icon}
-            />
-          ) : (
-            <></>
-          )}
+    <>
+      <TouchableOpacity onPress={() => setIsPressed(prevState => !prevState)}>
+        <View
+          style={{
+            ...styles.firstView,
+            backgroundColor: isPressed ? Colors.TURQUOISE_GREEN : '#ffffff',
+          }}>
+          <View>
+            {item.children?.length ? (
+              <SvgIcon
+                name="downArrow"
+                width={12}
+                height={6}
+                viewBox="0 0 10 6"
+                style={styles.icon}
+              />
+            ) : (
+              <></>
+            )}
+          </View>
+          <View>
+            <Text style={styles.title}>{item.title}</Text>
+          </View>
         </View>
-        <View>
-          <Text style={styles.title}>{item.title}</Text>
-        </View>
-      </View>
-    </TouchableOpacity>
+      </TouchableOpacity>
+      {item.children?.length && isPressed ? (
+        <Animated.FlatList
+          contentContainerStyle={styles.listChild}
+          data={item.children}
+          renderItem={SubCategory}
+          keyExtractor={item => item.id}
+        />
+      ) : (
+        <></>
+      )}
+    </>
   );
 };
 
@@ -49,7 +71,6 @@ const styles = StyleSheet.create({
   firstView: {
     width: 375,
     height: 52,
-    backgroundColor: '#ffffff',
     margin: 1,
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -68,6 +89,9 @@ const styles = StyleSheet.create({
   },
   icon: {
     left: Dimensions.get('screen').width * 0.06,
+  },
+  listChild: {
+    alignItems: 'flex-end',
   },
 });
 
