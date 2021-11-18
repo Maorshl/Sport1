@@ -44,8 +44,8 @@
 		ABFE59519B596E51CEFDCCC0 /* libPods-wiilwork-wiilworkTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-wiilwork-wiilworkTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0A881CF5CF3F2B244570E2A /* Pods-wiilwork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wiilwork.debug.xcconfig"; path = "Target Support Files/Pods-wiilwork/Pods-wiilwork.debug.xcconfig"; sourceTree = "<group>"; };
 		D00AAFFCFCFDA5787532823F /* Pods-wiilwork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wiilwork.release.xcconfig"; path = "Target Support Files/Pods-wiilwork/Pods-wiilwork.release.xcconfig"; sourceTree = "<group>"; };
+		DCAA9632583F4467A0C1A249 /* NarkissBlock-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "NarkissBlock-Regular.otf"; path = "../src/assets/fonts/NarkissBlock-Regular.otf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		DCAA9632583F4467A0C1A249 /* NarkissBlock-Regular.otf */ = {isa = PBXFileReference; name = "NarkissBlock-Regular.otf"; path = "../src/assets/fonts/NarkissBlock-Regular.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,13 +153,13 @@
 			sourceTree = "<group>";
 		};
 		F593FCDFFC664AF3AC7A7D31 /* Resources */ = {
-			isa = "PBXGroup";
+			isa = PBXGroup;
 			children = (
 				DCAA9632583F4467A0C1A249 /* NarkissBlock-Regular.otf */,
 			);
 			name = Resources;
-			sourceTree = "<group>";
 			path = "";
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 

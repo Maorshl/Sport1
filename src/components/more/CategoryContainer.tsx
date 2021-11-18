@@ -12,6 +12,7 @@ import {
 import SvgIcon from '../../utils/SvgIcon';
 import Colors from '../../constants/colors';
 import SubCategory from './SubCategory';
+import * as Animatable from 'react-native-animatable';
 
 export interface Category {
   title: string;
@@ -53,13 +54,16 @@ const CategoryContainer = ({item}: Props) => {
           </View>
         </View>
       </TouchableOpacity>
+
       {item.children?.length && isPressed ? (
-        <Animated.FlatList
-          contentContainerStyle={styles.listChild}
-          data={item.children}
-          renderItem={SubCategory}
-          keyExtractor={item => item.id}
-        />
+        <Animatable.View animation="slideInDown">
+          <FlatList
+            contentContainerStyle={styles.listChild}
+            data={item.children}
+            renderItem={SubCategory}
+            keyExtractor={item => item.id}
+          />
+        </Animatable.View>
       ) : (
         <></>
       )}
