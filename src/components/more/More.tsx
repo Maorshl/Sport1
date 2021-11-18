@@ -11,6 +11,7 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import {useDispatch, useSelector} from 'react-redux';
 import {thunk} from '../../redux/app';
 import SvgIcon from '../../utils/SvgIcon';
+import TopBar from '../common/TopBar';
 import CategoryContainer, {Category} from './CategoryContainer';
 
 function More() {
@@ -25,6 +26,7 @@ function More() {
 
   return (
     <SafeAreaView>
+      <TopBar />
       <View style={styles.background}>
         {categories.length ? (
           <FlatList

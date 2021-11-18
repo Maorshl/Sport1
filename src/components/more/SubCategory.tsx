@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 import {Category} from './CategoryContainer';
 
 interface Props {
@@ -8,10 +8,12 @@ interface Props {
 
 export default function SubCategory({item}: Props) {
   return (
-    <View style={styles.subCategory}>
-      <Text style={styles.text}>{item.title}</Text>
-      <View style={styles.divideLine}></View>
-    </View>
+    <TouchableOpacity>
+      <View style={styles.subCategory}>
+        <Text style={styles.text}>{item.title}</Text>
+        <View style={styles.divideLine}></View>
+      </View>
+    </TouchableOpacity>
   );
 }
 
