@@ -6,7 +6,6 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
-import Colors from '../../constants/colors';
 import SvgIcon from '../../utils/SvgIcon';
 
 const TopBar = () => {

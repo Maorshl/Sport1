@@ -13,6 +13,8 @@ import {thunk} from '../../redux/app';
 import SvgIcon from '../../utils/SvgIcon';
 import TopBar from '../common/TopBar';
 import CategoryContainer, {Category} from './CategoryContainer';
+import Search from 'react-native-search-box';
+import Colors from '../../constants/colors';
 
 function More() {
   const dispatch = useDispatch();
@@ -27,6 +29,13 @@ function More() {
   return (
     <SafeAreaView>
       <TopBar />
+      <Search
+        placeholder="חפש קבוצות, ליגות וכתבות"
+        cancelTitle="בטל"
+        backgroundColor="rgb(242, 242, 242)"
+        cancelButtonStyle={styles.search}
+        inputStyle={styles.input}
+      />
       <View style={styles.background}>
         {categories.length ? (
           <FlatList
@@ -62,6 +71,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 30,
     alignSelf: 'center',
+  },
+  search: {
+    color: 'rgb(78, 78, 78)',
+  },
+  input: {
+    textAlign: 'right',
+    justifyContent: 'flex-end',
   },
 });
 
