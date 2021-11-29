@@ -31,11 +31,7 @@ const CategoryContainer = ({item}: Props) => {
   return (
     <>
       <TouchableOpacity onPress={() => setIsPressed(prevState => !prevState)}>
-        <View
-          style={{
-            ...styles.firstView,
-            backgroundColor: isPressed ? Colors.TURQUOISE_GREEN : '#ffffff',
-          }}>
+        <View style={styles.firstView}>
           <View>
             {item.children?.length ? (
               <SvgIcon
@@ -58,6 +54,7 @@ const CategoryContainer = ({item}: Props) => {
       {item.children?.length && isPressed ? (
         <Animatable.View animation="slideInDown">
           <FlatList
+            style={styles.list}
             contentContainerStyle={styles.listChild}
             data={item.children}
             renderItem={SubCategory}
@@ -73,12 +70,13 @@ const CategoryContainer = ({item}: Props) => {
 
 const styles = StyleSheet.create({
   firstView: {
-    width: 375,
+    width: Dimensions.get('screen').width,
     height: 52,
     margin: 1,
     alignItems: 'center',
     justifyContent: 'space-between',
     flexDirection: 'row',
+    backgroundColor: '#ffffff',
   },
   title: {
     fontSize: 17,
@@ -95,7 +93,7 @@ const styles = StyleSheet.create({
     left: Dimensions.get('screen').width * 0.06,
   },
   listChild: {
-    alignItems: 'flex-end',
+    alignItems: 'flex-start',
   },
 });
 

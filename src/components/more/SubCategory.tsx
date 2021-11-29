@@ -1,5 +1,11 @@
 import React from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  Dimensions,
+} from 'react-native';
 import {Category} from './CategoryContainer';
 
 interface Props {
@@ -20,7 +26,7 @@ export default function SubCategory({item}: Props) {
 const styles = StyleSheet.create({
   subCategory: {
     backgroundColor: '#f2f2f2',
-    width: 375,
+    width: Dimensions.get('screen').width,
     height: 40,
   },
   divideLine: {
