@@ -10,3 +10,7 @@ export async function getCategories() {
   const {data} = await axios.get('/sport1/v1/navigation');
   return data;
 }
+export async function search(searchText: string) {
+  const {data} = await axios.get(`/sport1/v1/search?s=${searchText}`);
+  return data;
+}

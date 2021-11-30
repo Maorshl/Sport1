@@ -1,18 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import {
-  FlatList,
-  Platform,
-  Text,
-  View,
-  StyleSheet,
-  Dimensions,
-} from 'react-native';
+import {Platform, Text, View, StyleSheet, Dimensions} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {useDispatch, useSelector} from 'react-redux';
-import {thunk} from '../../redux/app';
-import SvgIcon from '../../utils/SvgIcon';
+import {categoriesFetch, searchFetch} from '../../redux/app';
 import TopBar from '../common/TopBar';
-import CategoryContainer, {Category} from './CategoryContainer';
+import {Category} from './CategoryContainer';
 import Search from 'react-native-search-box';
 import CategoriesList from './CategoriesList';
 
@@ -24,12 +16,22 @@ function More() {
   const categories = useSelector(
     (state: {app: {categories: Category[]}}) => state.app.categories,
   );
+  const searchResults = useSelector(
+    (state: {app: {searchResults: {}}}) => state.app.searchResults,
+  );
 
   useEffect(() => {
-    dispatch(thunk());
+    dispatch(categoriesFetch());
     console.log('Categories Fetched on:', Platform.OS.toString());
   }, []);
 
+  const onSearch = (searchText: string) => {
+    return new Promise((resolve, reject) => {
+      console.log('Searched ', `"${searchText}"`);
+      dispatch(searchFetch(searchText));
+      resolve('');
+    });
+  };
   return (
     <SafeAreaView>
       <TopBar />
@@ -94,12 +96,6 @@ const styles = StyleSheet.create({
   },
 });
 
-const onSearch = (searchText: string) => {
-  return new Promise((resolve, reject) => {
-    console.log('Searched ', `"${searchText}"`);
-    resolve('');
-  });
-};
 const onFocus = (setFocus: Function) => {
   return new Promise((resolve, reject) => {
     setFocus((prevState: boolean) => !prevState);

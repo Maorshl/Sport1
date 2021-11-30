@@ -1,26 +1,47 @@
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
-import {getCategories} from '../api/repo';
+import {getCategories, search} from '../api/repo';
 
-export const thunk = createAsyncThunk('app/thunk', async () => {
-  return await getCategories();
-});
+export const categoriesFetch = createAsyncThunk(
+  'app/categoriesFetch',
+  async () => {
+    return await getCategories();
+  },
+);
+export const searchFetch = createAsyncThunk(
+  'app/searchFetch',
+  async (searchText: string) => {
+    return await search(searchText);
+  },
+);
 
 export const appSlice = createSlice({
   name: 'app',
   initialState: {
+    searchResults: {},
     categories: [],
     status: 'waiting',
   },
   reducers: {},
   extraReducers: builder => {
-    builder.addCase(thunk.fulfilled, (state, action) => {
+    builder.addCase(categoriesFetch.fulfilled, (state, action) => {
       state.categories = action.payload.categories;
       state.status = 'fulfilled';
     });
-    builder.addCase(thunk.pending, (state, action) => {
+    builder.addCase(categoriesFetch.pending, (state, action) => {
       state.status = 'loading';
     });
-    builder.addCase(thunk.rejected, (state, action) => {
+    builder.addCase(categoriesFetch.rejected, (state, action) => {
+      state.status = 'Failed';
+    });
+    builder.addCase(searchFetch.fulfilled, (state, action) => {
+      state.searchResults = action.payload.results;
+      console.log(state.searchResults);
+      state.status = 'fulfilled';
+    });
+    builder.addCase(searchFetch.pending, (state, action) => {
+      state.status = 'loading';
+    });
+    builder.addCase(searchFetch.rejected, (state, action) => {
       state.status = 'Failed';
     });
   },
