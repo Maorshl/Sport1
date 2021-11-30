@@ -7,9 +7,11 @@ import TopBar from '../common/TopBar';
 import {Category} from './CategoryContainer';
 import Search from 'react-native-search-box';
 import CategoriesList from './CategoriesList';
+import Results from '../searchResults/Results';
 
 function More() {
   const [focused, setFocused] = useState<boolean>(false);
+  const [searched, setSearched] = useState<boolean>(false);
 
   const dispatch = useDispatch();
 
@@ -27,11 +29,27 @@ function More() {
 
   const onSearch = (searchText: string) => {
     return new Promise((resolve, reject) => {
-      console.log('Searched ', `"${searchText}"`);
       dispatch(searchFetch(searchText));
+      setSearched(true);
       resolve('');
     });
   };
+
+  const onFocus = () => {
+    return new Promise((resolve, reject) => {
+      setFocused((prevState: boolean) => !prevState);
+      resolve('');
+    });
+  };
+
+  const onCancel = () => {
+    return new Promise((resolve, reject) => {
+      setFocused((prevState: boolean) => !prevState);
+      setSearched(false);
+      resolve('');
+    });
+  };
+
   return (
     <SafeAreaView>
       <TopBar />
@@ -42,18 +60,22 @@ function More() {
         cancelButtonStyle={styles.search}
         inputStyle={styles.input}
         onSearch={onSearch}
-        onFocus={() => onFocus(setFocused)}
-        onCancel={() => onFocus(setFocused)}
+        onFocus={() => onFocus()}
+        onCancel={() => onCancel()}
         inputHeight={30}
         positionRightDelete={Dimensions.get('screen').width * 0.88}
       />
-      <View style={styles.background}>
-        {categories.length ? (
-          <CategoriesList focused={focused} categories={categories} />
-        ) : (
-          <Text>I am a spinner</Text>
-        )}
-      </View>
+      {searched ? (
+        <Results />
+      ) : (
+        <View style={styles.background}>
+          {categories.length ? (
+            <CategoriesList focused={focused} categories={categories} />
+          ) : (
+            <Text>I am a spinner</Text>
+          )}
+        </View>
+      )}
     </SafeAreaView>
   );
 }
@@ -96,10 +118,4 @@ const styles = StyleSheet.create({
   },
 });
 
-const onFocus = (setFocus: Function) => {
-  return new Promise((resolve, reject) => {
-    setFocus((prevState: boolean) => !prevState);
-    resolve('');
-  });
-};
 export default More;

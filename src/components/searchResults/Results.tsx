@@ -1,10 +1,30 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import Posts from './posts/Posts';
+import TeamsAndLeagues from './teamsAndLeagues/TeamsAndLeagues';
+import {useDispatch, useSelector} from 'react-redux';
 
 export default function Results() {
+  const searchResults = useSelector(
+    (state: {
+      app: {
+        searchResults: {
+          teams_and_leagues: {teams: []; leagues: []};
+          posts: [];
+        };
+      };
+    }) => state.app.searchResults,
+  );
+
   return (
-    <View>
-      <Text></Text>
-    </View>
+    <>
+      {searchResults.posts ? (
+        <>
+          <TeamsAndLeagues data={searchResults.teams_and_leagues} />
+          <Posts data={searchResults.posts} />
+        </>
+      ) : (
+        <></>
+      )}
+    </>
   );
 }

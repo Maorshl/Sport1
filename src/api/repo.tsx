@@ -3,7 +3,7 @@ export const Base_URL: string = 'https://sp1dv.maariv.co.il/wp-json';
 export const HEADER_KEY: string = 'x-sport1-mobile-app';
 
 axios.defaults.baseURL = Base_URL;
-axios.defaults.timeout = 1000;
+axios.defaults.timeout = 3000;
 axios.defaults.headers.common[HEADER_KEY] = 'true';
 
 export async function getCategories() {
@@ -11,6 +11,10 @@ export async function getCategories() {
   return data;
 }
 export async function search(searchText: string) {
-  const {data} = await axios.get(`/sport1/v1/search?s=${searchText}`);
-  return data;
+  try {
+    const {data} = await axios.get(`/sport1/v1/search?s=${searchText}`);
+    return data;
+  } catch (e) {
+    console.error(e);
+  }
 }

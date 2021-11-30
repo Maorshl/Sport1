@@ -35,7 +35,6 @@ export const appSlice = createSlice({
     });
     builder.addCase(searchFetch.fulfilled, (state, action) => {
       state.searchResults = action.payload.results;
-      console.log(state.searchResults);
       state.status = 'fulfilled';
     });
     builder.addCase(searchFetch.pending, (state, action) => {
