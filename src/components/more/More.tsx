@@ -28,8 +28,7 @@ function More() {
   );
 
   useEffect(() => {
-    dispatch(categoriesFetch());
-    console.log('Categories Fetched on:', Platform.OS.toString());
+    dispatch(categoriesFetch(''));
   }, []);
 
   const onSearch = (searchText: string) => {

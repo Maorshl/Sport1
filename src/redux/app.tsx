@@ -11,6 +11,7 @@ export const categoriesFetch = createAsyncThunk(
     }
   },
 );
+
 export const searchFetch = createAsyncThunk(
   'app/searchFetch',
   async (searchText: string, {rejectWithValue}) => {
