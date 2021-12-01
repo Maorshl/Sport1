@@ -60,18 +60,23 @@ function More() {
     <SafeAreaView>
       <Spinner visible={loading} textContent={'Loading...'} />
       <TopBar />
-      <Search
-        placeholder="חפש קבוצות, ליגות וכתבות..."
-        cancelTitle="בטל"
-        backgroundColor="rgb(242, 242, 242)"
-        cancelButtonStyle={styles.search}
-        inputStyle={styles.input}
-        onSearch={onSearch}
-        onFocus={() => onFocus()}
-        onCancel={() => onCancel()}
-        inputHeight={30}
-        positionRightDelete={Dimensions.get('screen').width * 0.88}
-      />
+      <View style={{margin: 3}}>
+        <Search
+          placeholder="חפש קבוצות, ליגות וכתבות..."
+          cancelTitle="בטל"
+          backgroundColor="rgb(242, 242, 242)"
+          cancelButtonStyle={styles.search}
+          inputStyle={{
+            ...styles.input,
+            borderColor: focused ? '#141414' : '#e9e9e9',
+          }}
+          onSearch={onSearch}
+          onFocus={onFocus}
+          onCancel={onCancel}
+          inputHeight={45}
+          positionRightDelete={Dimensions.get('screen').width * 0.88}
+        />
+      </View>
       {searched && !loading ? (
         <View style={{maxHeight: '100%'}}>
           <Results focused={focused} />
@@ -112,7 +117,8 @@ const styles = StyleSheet.create({
     borderStyle: 'solid',
     borderWidth: 1,
     borderColor: '#141414',
-    width: '100%',
+    width: '85%',
+    paddingStart: 10,
   },
   activeInput: {
     backgroundColor: '#ffffff',
