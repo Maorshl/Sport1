@@ -8,6 +8,7 @@ import {Category} from './CategoryContainer';
 import Search from 'react-native-search-box';
 import CategoriesList from './CategoriesList';
 import Results from '../searchResults/Results';
+import Spinner from 'react-native-loading-spinner-overlay';
 
 function More() {
   const [focused, setFocused] = useState<boolean>(false);
@@ -22,6 +23,10 @@ function More() {
     (state: {app: {searchResults: {}}}) => state.app.searchResults,
   );
 
+  const loading = useSelector(
+    (state: {app: {loading: boolean}}) => state.app.loading,
+  );
+
   useEffect(() => {
     dispatch(categoriesFetch());
     console.log('Categories Fetched on:', Platform.OS.toString());
@@ -31,20 +36,21 @@ function More() {
     return new Promise((resolve, reject) => {
       dispatch(searchFetch(searchText));
       setSearched(true);
+      setFocused(false);
       resolve('');
     });
   };
 
   const onFocus = () => {
     return new Promise((resolve, reject) => {
-      setFocused((prevState: boolean) => !prevState);
+      setFocused(true);
       resolve('');
     });
   };
 
   const onCancel = () => {
     return new Promise((resolve, reject) => {
-      setFocused((prevState: boolean) => !prevState);
+      setFocused(false);
       setSearched(false);
       resolve('');
     });
@@ -52,6 +58,7 @@ function More() {
 
   return (
     <SafeAreaView>
+      <Spinner visible={loading} textContent={'Loading...'} />
       <TopBar />
       <Search
         placeholder="חפש קבוצות, ליגות וכתבות..."
@@ -65,14 +72,16 @@ function More() {
         inputHeight={30}
         positionRightDelete={Dimensions.get('screen').width * 0.88}
       />
-      {searched ? (
-        <Results />
+      {searched && !loading ? (
+        <View style={{maxHeight: '100%'}}>
+          <Results focused={focused} />
+        </View>
       ) : (
         <View style={styles.background}>
           {categories.length ? (
             <CategoriesList focused={focused} categories={categories} />
           ) : (
-            <Text>I am a spinner</Text>
+            <></>
           )}
         </View>
       )}

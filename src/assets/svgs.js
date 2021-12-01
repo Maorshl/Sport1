@@ -8,6 +8,8 @@ import {
   Rect,
   Polyline,
   Polygon,
+  ClipPath,
+  Svg,
 } from 'react-native-svg';
 
 export default {
@@ -380,5 +382,244 @@ export default {
         </G>
       </G>
     </G>
+  ),
+  emptyIcon: (
+    <G enable-background="new">
+      <G>
+        <ClipPath id="cp0">
+          <Path
+            transform="matrix(1,0,0,-1,0,30)"
+            d="M 12.08267 30 C 5.424704 30 0 24.5753 0 17.91733 C 0 11.25935 5.424704 5.834651 12.08267 5.834651 C 14.96177 5.834651 17.60654 6.851845 19.68643 8.542836 L 27.86306 .3661988 C 28.35133 -.1220663 29.14554 -.1220663 29.6338 .3661988 C 30.12207 .8544638 30.12207 1.635671 29.6338 2.123936 L 21.45716 10.30057 C 23.1514 12.38054 24.16535 15.0349 24.16535 17.91724 C 24.16535 24.57521 18.74065 30 12.08267 30 Z M 12 27.6 C 17.31673 27.6 21.6 23.31673 21.6 18 C 21.6 12.68327 17.31673 8.4 12 8.4 C 6.68327 8.4 2.4 12.68327 2.4 18 C 2.4 23.31673 6.68327 27.6 12 27.6 Z "
+          />
+        </ClipPath>
+        <G clip-path="url(#cp0)">
+          <ClipPath id="cp1">
+            <Path
+              transform="matrix(1,0,0,-1,0,30)"
+              d="M -267 -548 L 108 -548 L 108 232 L -267 232 Z "
+            />
+          </ClipPath>
+          <G clip-path="url(#cp1)">
+            <Path
+              transform="matrix(1,0,0,-1,0,30)"
+              d="M -5 35 L 35 35 L 35 -5 L -5 -5 Z "
+              fill="#bebebe"
+            />
+          </G>
+        </G>
+        <ClipPath id="cp2">
+          <Path
+            transform="matrix(1,0,0,-1,0,30)"
+            d="M 7.2 16.8 C 7.862742 16.8 8.4 17.33726 8.4 18 C 8.4 18.66274 7.862742 19.2 7.2 19.2 C 6.537258 19.2 6 18.66274 6 18 C 6 17.33726 6.537258 16.8 7.2 16.8 Z "
+            fill-rule="evenodd"
+          />
+        </ClipPath>
+        <G clip-path="url(#cp2)">
+          <ClipPath id="cp3">
+            <Path
+              transform="matrix(1,0,0,-1,0,30)"
+              d="M -267 -548 L 108 -548 L 108 232 L -267 232 Z "
+            />
+          </ClipPath>
+          <G clip-path="url(#cp3)">
+            <G>
+              <ClipPath id="cp4">
+                <Path
+                  transform="matrix(1,0,0,-1,0,30)"
+                  d="M -6 4 L 21 4 L 21 32 L -6 32 Z "
+                />
+              </ClipPath>
+              <G clip-path="url(#cp4)">
+                <ClipPath id="cp5">
+                  <Path
+                    transform="matrix(1,0,0,-1,0,30)"
+                    d="M 7.2 16.8 C 7.862742 16.8 8.4 17.33726 8.4 18 C 8.4 18.66274 7.862742 19.2 7.2 19.2 C 6.537258 19.2 6 18.66274 6 18 C 6 17.33726 6.537258 16.8 7.2 16.8 Z "
+                    fill-rule="evenodd"
+                  />
+                </ClipPath>
+                <G clip-path="url(#cp5)">
+                  <ClipPath id="cp6">
+                    <Path
+                      transform="matrix(1,0,0,-1,0,30)"
+                      d="M 6 16 L 9 16 L 9 20 L 6 20 Z "
+                    />
+                  </ClipPath>
+                  <G clip-path="url(#cp6)">
+                    <Path
+                      transform="matrix(1,0,0,-1,0,30)"
+                      d="M 7.2 16.8 C 7.862742 16.8 8.4 17.33726 8.4 18 C 8.4 18.66274 7.862742 19.2 7.2 19.2 C 6.537258 19.2 6 18.66274 6 18 C 6 17.33726 6.537258 16.8 7.2 16.8 Z "
+                      fill="#bebebe"
+                    />
+                  </G>
+                </G>
+                <ClipPath id="cp7">
+                  <Path
+                    transform="matrix(1,0,0,-1,0,30)"
+                    d="M 6 16 L 9 16 L 9 20 L 6 20 Z "
+                  />
+                </ClipPath>
+                <G clip-path="url(#cp7)">
+                  <Path
+                    transform="matrix(1,0,0,1,6,10.799999)"
+                    stroke-width="2.4"
+                    stroke-linecap="butt"
+                    stroke-miterlimit="10"
+                    stroke-linejoin="miter"
+                    fill="none"
+                    stroke="#bebebe"
+                    d="M 1.2 2.4 C 1.862742 2.4 2.4 1.862742 2.4 1.2 C 2.4 .5372583 1.862742 0 1.2 0 C .5372583 0 0 .5372583 0 1.2 C 0 1.862742 .5372583 2.4 1.2 2.4 Z "
+                  />
+                </G>
+              </G>
+            </G>
+          </G>
+        </G>
+        <ClipPath id="cp8">
+          <Path
+            transform="matrix(1,0,0,-1,0,30)"
+            d="M 12 16.8 C 12.66274 16.8 13.2 17.33726 13.2 18 C 13.2 18.66274 12.66274 19.2 12 19.2 C 11.33726 19.2 10.8 18.66274 10.8 18 C 10.8 17.33726 11.33726 16.8 12 16.8 Z "
+            fill-rule="evenodd"
+          />
+        </ClipPath>
+        <G clip-path="url(#cp8)">
+          <ClipPath id="cp9">
+            <Path
+              transform="matrix(1,0,0,-1,0,30)"
+              d="M -267 -548 L 108 -548 L 108 232 L -267 232 Z "
+            />
+          </ClipPath>
+          <G clip-path="url(#cp9)">
+            <G>
+              <ClipPath id="cp10">
+                <Path
+                  transform="matrix(1,0,0,-1,0,30)"
+                  d="M -2 4 L 26 4 L 26 32 L -2 32 Z "
+                />
+              </ClipPath>
+              <G clip-path="url(#cp10)">
+                <ClipPath id="cp11">
+                  <Path
+                    transform="matrix(1,0,0,-1,0,30)"
+                    d="M 12 16.8 C 12.66274 16.8 13.2 17.33726 13.2 18 C 13.2 18.66274 12.66274 19.2 12 19.2 C 11.33726 19.2 10.8 18.66274 10.8 18 C 10.8 17.33726 11.33726 16.8 12 16.8 Z "
+                    fill-rule="evenodd"
+                  />
+                </ClipPath>
+                <G clip-path="url(#cp11)">
+                  <ClipPath id="cp12">
+                    <Path
+                      transform="matrix(1,0,0,-1,0,30)"
+                      d="M 10 16 L 14 16 L 14 20 L 10 20 Z "
+                    />
+                  </ClipPath>
+                  <G clip-path="url(#cp12)">
+                    <Path
+                      transform="matrix(1,0,0,-1,0,30)"
+                      d="M 12 16.8 C 12.66274 16.8 13.2 17.33726 13.2 18 C 13.2 18.66274 12.66274 19.2 12 19.2 C 11.33726 19.2 10.8 18.66274 10.8 18 C 10.8 17.33726 11.33726 16.8 12 16.8 Z "
+                      fill="#bebebe"
+                    />
+                  </G>
+                </G>
+                <ClipPath id="cp13">
+                  <Path
+                    transform="matrix(1,0,0,-1,0,30)"
+                    d="M 10 16 L 14 16 L 14 20 L 10 20 Z "
+                  />
+                </ClipPath>
+                <G clip-path="url(#cp13)">
+                  <Path
+                    transform="matrix(1,0,0,1,10.8,10.799999)"
+                    stroke-width="2.4"
+                    stroke-linecap="butt"
+                    stroke-miterlimit="10"
+                    stroke-linejoin="miter"
+                    fill="none"
+                    stroke="#bebebe"
+                    d="M 1.2 2.4 C 1.862742 2.4 2.4 1.862742 2.4 1.2 C 2.4 .5372583 1.862742 0 1.2 0 C .5372583 0 0 .5372583 0 1.2 C 0 1.862742 .5372583 2.4 1.2 2.4 Z "
+                  />
+                </G>
+              </G>
+            </G>
+          </G>
+        </G>
+        <ClipPath id="cp14">
+          <Path
+            transform="matrix(1,0,0,-1,0,30)"
+            d="M 16.8 16.8 C 17.46274 16.8 18 17.33726 18 18 C 18 18.66274 17.46274 19.2 16.8 19.2 C 16.13726 19.2 15.6 18.66274 15.6 18 C 15.6 17.33726 16.13726 16.8 16.8 16.8 Z "
+            fill-rule="evenodd"
+          />
+        </ClipPath>
+        <G clip-path="url(#cp14)">
+          <ClipPath id="cp15">
+            <Path
+              transform="matrix(1,0,0,-1,0,30)"
+              d="M -267 -548 L 108 -548 L 108 232 L -267 232 Z "
+            />
+          </ClipPath>
+          <G clip-path="url(#cp15)">
+            <G>
+              <ClipPath id="cp16">
+                <Path
+                  transform="matrix(1,0,0,-1,0,30)"
+                  d="M 3 4 L 31 4 L 31 32 L 3 32 Z "
+                />
+              </ClipPath>
+              <G clip-path="url(#cp16)">
+                <ClipPath id="cp17">
+                  <Path
+                    transform="matrix(1,0,0,-1,0,30)"
+                    d="M 16.8 16.8 C 17.46274 16.8 18 17.33726 18 18 C 18 18.66274 17.46274 19.2 16.8 19.2 C 16.13726 19.2 15.6 18.66274 15.6 18 C 15.6 17.33726 16.13726 16.8 16.8 16.8 Z "
+                    fill-rule="evenodd"
+                  />
+                </ClipPath>
+                <G clip-path="url(#cp17)">
+                  <ClipPath id="cp18">
+                    <Path
+                      transform="matrix(1,0,0,-1,0,30)"
+                      d="M 15 16 L 19 16 L 19 20 L 15 20 Z "
+                    />
+                  </ClipPath>
+                  <G clip-path="url(#cp18)">
+                    <Path
+                      transform="matrix(1,0,0,-1,0,30)"
+                      d="M 16.8 16.8 C 17.46274 16.8 18 17.33726 18 18 C 18 18.66274 17.46274 19.2 16.8 19.2 C 16.13726 19.2 15.6 18.66274 15.6 18 C 15.6 17.33726 16.13726 16.8 16.8 16.8 Z "
+                      fill="#bebebe"
+                    />
+                  </G>
+                </G>
+                <ClipPath id="cp19">
+                  <Path
+                    transform="matrix(1,0,0,-1,0,30)"
+                    d="M 15 16 L 19 16 L 19 20 L 15 20 Z "
+                  />
+                </ClipPath>
+                <G clip-path="url(#cp19)">
+                  <Path
+                    transform="matrix(1,0,0,1,15.6,10.799999)"
+                    stroke-width="2.4"
+                    stroke-linecap="butt"
+                    stroke-miterlimit="10"
+                    stroke-linejoin="miter"
+                    fill="none"
+                    stroke="#bebebe"
+                    d="M 1.2 2.4 C 1.862742 2.4 2.4 1.862742 2.4 1.2 C 2.4 .5372583 1.862742 0 1.2 0 C .5372583 0 0 .5372583 0 1.2 C 0 1.862742 .5372583 2.4 1.2 2.4 Z "
+                  />
+                </G>
+              </G>
+            </G>
+          </G>
+        </G>
+      </G>
+    </G>
+  ),
+  magnifyingGlass: (
+    <Svg xmlns="http://www.w3.org/2000/svg" width="490" height="490">
+      <Path
+        fill="none"
+        stroke="#000"
+        stroke-width="36"
+        stroke-linecap="round"
+        d="m280,278a153,153 0 1,0-2,2l170,170m-91-117 110,110-26,26-110-110"
+      />
+    </Svg>
   ),
 };

@@ -19,29 +19,32 @@ export const appSlice = createSlice({
   initialState: {
     searchResults: {},
     categories: [],
+    loading: false,
     status: 'waiting',
   },
   reducers: {},
   extraReducers: builder => {
     builder.addCase(categoriesFetch.fulfilled, (state, action) => {
       state.categories = action.payload.categories;
-      state.status = 'fulfilled';
+      state.loading = false;
     });
     builder.addCase(categoriesFetch.pending, (state, action) => {
-      state.status = 'loading';
+      state.loading = true;
     });
     builder.addCase(categoriesFetch.rejected, (state, action) => {
       state.status = 'Failed';
+      state.loading = false;
     });
     builder.addCase(searchFetch.fulfilled, (state, action) => {
       state.searchResults = action.payload.results;
-      state.status = 'fulfilled';
+      state.loading = false;
     });
     builder.addCase(searchFetch.pending, (state, action) => {
-      state.status = 'loading';
+      state.loading = true;
     });
     builder.addCase(searchFetch.rejected, (state, action) => {
       state.status = 'Failed';
+      state.loading = false;
     });
   },
 });
