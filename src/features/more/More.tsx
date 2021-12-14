@@ -3,7 +3,7 @@ import {Platform, Text, View, StyleSheet, Dimensions} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {useDispatch, useSelector} from 'react-redux';
 import {categoriesFetch, searchFetch} from '../../redux/app';
-import TopBar from '../common/TopBar';
+import TopBar from '../../components/common/TopBar';
 import {Category} from './CategoryContainer';
 import Search from 'react-native-search-box';
 import CategoriesList from './CategoriesList';
