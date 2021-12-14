@@ -1,8 +1,8 @@
-import {configureStore} from '@reduxjs/toolkit';
-import appReducer from './app';
+import {configureStore, combineReducers} from '@reduxjs/toolkit';
+import moreReducer from '../features/more/reducer/more.reducer';
 
 export default configureStore({
-  reducer: {
-    app: appReducer,
-  },
+  reducer: combineReducers({
+    more: moreReducer,
+  }),
 });

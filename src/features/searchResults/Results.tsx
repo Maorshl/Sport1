@@ -11,13 +11,13 @@ interface Props {
 export default function Results({focused}: Props) {
   const searchResults = useSelector(
     (state: {
-      app: {
+      more: {
         searchResults: {
           teams_and_leagues: {teams: []; leagues: []};
           posts: [];
         };
       };
-    }) => state.app.searchResults,
+    }) => state.more.searchResults,
   );
 
   return (

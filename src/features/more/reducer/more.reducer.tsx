@@ -1,30 +1,9 @@
 import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
-import {getCategories, search} from '../api/repo';
+import {getCategories, search} from '../../../api/repo';
+import {categoriesFetch, searchFetch} from '../actions/more.action';
 
-export const categoriesFetch = createAsyncThunk(
-  'app/categoriesFetch',
-  async (a: any = null, {rejectWithValue}) => {
-    try {
-      return await getCategories();
-    } catch (e: any) {
-      return rejectWithValue(e.message);
-    }
-  },
-);
-
-export const searchFetch = createAsyncThunk(
-  'app/searchFetch',
-  async (searchText: string, {rejectWithValue}) => {
-    try {
-      return await search(searchText);
-    } catch (e: any) {
-      return rejectWithValue(e.message);
-    }
-  },
-);
-
-export const appSlice = createSlice({
-  name: 'app',
+export const moreSlice = createSlice({
+  name: 'more',
   initialState: {
     searchResults: {},
     categories: [],
@@ -61,6 +40,6 @@ export const appSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const {} = appSlice.actions;
+export const {} = moreSlice.actions;
 
-export default appSlice.reducer;
+export default moreSlice.reducer;

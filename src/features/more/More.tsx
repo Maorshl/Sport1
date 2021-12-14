@@ -2,7 +2,8 @@ import React, {useEffect, useState} from 'react';
 import {Platform, Text, View, StyleSheet, Dimensions} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {useDispatch, useSelector} from 'react-redux';
-import {categoriesFetch, searchFetch} from '../../redux/app';
+// import {searchFetch} from '../../redux/app';
+import {categoriesFetch, searchFetch} from './actions/more.action';
 import TopBar from '../../components/common/TopBar';
 import {Category} from './CategoryContainer';
 import Search from 'react-native-search-box';
@@ -16,16 +17,19 @@ function More() {
 
   const dispatch = useDispatch();
 
-  const categories = useSelector(
-    (state: {app: {categories: Category[]}}) => state.app.categories,
+  // const categories = useSelector(
+  //   (state: {app: {categories: Category[]}}) => state.app.categories,
+  // );
+  const {categories, loading} = useSelector(
+    (state: {more: {categories: Category[]; loading: boolean}}) => state.more,
   );
-  const searchResults = useSelector(
-    (state: {app: {searchResults: {}}}) => state.app.searchResults,
-  );
+  // const searchResults = useSelector(
+  //   (state: {app: {searchResults: {}}}) => state.app.searchResults,
+  // );
 
-  const loading = useSelector(
-    (state: {app: {loading: boolean}}) => state.app.loading,
-  );
+  // const loading = useSelector(
+  //   (state: {app: {loading: boolean}}) => state.app.loading,
+  // );
 
   useEffect(() => {
     dispatch(categoriesFetch(''));
