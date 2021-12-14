@@ -95,6 +95,7 @@ const styles = StyleSheet.create({
   listChild: {
     alignItems: 'flex-start',
   },
+  list: {},
 });
 
 export default CategoryContainer;

@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
   },
   list: {
     width: Dimensions.get('screen').width,
+    maxHeight: Dimensions.get('screen').height * 0.7,
   },
   madeByMoveo: {
     margin: 'auto',
