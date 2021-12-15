@@ -4,20 +4,28 @@ import {Provider, useSelector, useDispatch} from 'react-redux';
 import Carousel from './Carousel';
 import Navigator from '../navigation/Container';
 import {firstTimeCheck} from './action/onBoarding.action';
+import Spinner from 'react-native-loading-spinner-overlay';
 
 export default function Main() {
   const dispatch = useDispatch();
-
-  //   const isFirstTime = useSelector(
-  //     (state: {onBoarding: {firstTime: boolean}}) => state.onBoarding.firstTime,
-  //   );
   const isFirstTime = useSelector((state: any) => state.onBoarding.isFirstTime);
 
   useEffect(() => {
     dispatch(firstTimeCheck(''));
   }, []);
 
-  return <>{isFirstTime ? <Carousel /> : <Navigator />}</>;
+  return (
+    <>
+      {isFirstTime ? (
+        <>
+          <Carousel />
+          <Spinner visible={!isFirstTime} textContent={'Loading...'} />
+        </>
+      ) : (
+        <Navigator />
+      )}
+    </>
+  );
 }
 
 const styles = StyleSheet.create({});

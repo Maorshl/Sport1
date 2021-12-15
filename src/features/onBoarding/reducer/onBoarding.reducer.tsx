@@ -4,7 +4,7 @@ import {firstTimeCheck, finishOnBoarding} from '../action/onBoarding.action';
 export const moreSlice = createSlice({
   name: 'more',
   initialState: {
-    isFirstTime: true,
+    isFirstTime: false,
     loading: false,
   },
   reducers: {},
