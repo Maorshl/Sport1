@@ -7,11 +7,12 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import SvgIcon from '../../utils/SvgIcon';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const TopBar = () => {
   return (
     <View style={styles.TopBar}>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={clearData}>
         <SvgIcon
           name="manWithAStar"
           width={21}
@@ -29,6 +30,10 @@ const TopBar = () => {
       />
     </View>
   );
+};
+
+const clearData = async () => {
+  await AsyncStorage.clear();
 };
 
 const styles = StyleSheet.create({

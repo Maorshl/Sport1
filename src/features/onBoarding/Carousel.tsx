@@ -11,13 +11,24 @@ import Carousel from 'react-native-snap-carousel';
 import Card from './Card';
 import SlideIndicator from './SlideIndicator';
 import LastCardButton from './LastCardButton';
+import {useDispatch} from 'react-redux';
+import {finishOnBoarding} from './action/onBoarding.action';
+
+interface Props {
+  setFirstTime: Function;
+}
 
 export default function MyCarousel() {
-  const [index, setIndex] = useState<{activeIndex: number}>();
+  const dispatch = useDispatch();
+  const [index, setIndex] = useState<number>(0);
   return (
     <SafeAreaView>
       <View style={styles.carouselContainer}>
-        <TouchableOpacity style={styles.buttonContainer}>
+        <TouchableOpacity
+          style={styles.buttonContainer}
+          onPress={() => {
+            dispatch(finishOnBoarding(''));
+          }}>
           <Text style={styles.button}>דלג</Text>
         </TouchableOpacity>
         <Carousel
@@ -26,10 +37,10 @@ export default function MyCarousel() {
           sliderWidth={Dimensions.get('screen').width}
           itemWidth={Dimensions.get('screen').width}
           renderItem={_renderItem}
-          onSnapToItem={(index: number) => setIndex({activeIndex: index})}
+          onSnapToItem={(index: number) => setIndex(index)}
         />
-        {index.activeIndex === 1 || index.activeIndex === 0 ? (
-          <SlideIndicator index={index.activeIndex} />
+        {index === 1 || index === 0 ? (
+          <SlideIndicator index={index} />
         ) : (
           <LastCardButton />
         )}

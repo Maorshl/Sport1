@@ -9,27 +9,45 @@ import {
 import colors from '../../constants/colors';
 import * as Animatable from 'react-native-animatable';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {showMessage} from 'react-native-flash-message';
+import {finishOnBoarding} from './action/onBoarding.action';
+import {useDispatch} from 'react-redux';
+
+interface Props {
+  setFirstTime: Function;
+}
 
 export default function LastCardButton() {
+  const dispatch = useDispatch();
   return (
     <Animatable.View style={styles.container} animation="slideInUp">
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => {
+          dispatch(finishOnBoarding(''));
+        }}>
         <Text style={styles.buttonText}>קחו אותי פנימה</Text>
       </TouchableOpacity>
-      <TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => {
+          dispatch(finishOnBoarding(''));
+        }}>
         <Text style={styles.text}>כבר יש לי משתמש</Text>
       </TouchableOpacity>
     </Animatable.View>
   );
 }
 
-export const storeData = async () => {
-  try {
-    await AsyncStorage.setItem('onBoarding', 'true');
-  } catch (e) {
-    // saving error
-  }
-};
+// export const finishOnBoarding = async () => {
+//   try {
+//     await AsyncStorage.setItem('onBoarding', 'true');
+//   } catch (e) {
+//     showMessage({
+//       message: 'An Error Occurred, Please try again later',
+//       type: 'danger',
+//     });
+//   }
+// };
 
 const styles = StyleSheet.create({
   container: {
