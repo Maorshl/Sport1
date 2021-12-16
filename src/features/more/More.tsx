@@ -37,7 +37,7 @@ function More() {
 
   const onSearch = (searchText: string) => {
     return new Promise((resolve, reject) => {
-      dispatch(searchFetch(searchText));
+      dispatch(searchFetch(searchText.trim()));
       setSearched(true);
       setFocused(false);
       resolve('');
