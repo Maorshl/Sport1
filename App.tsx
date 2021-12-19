@@ -15,7 +15,7 @@ const App = () => {
   return (
     <Provider store={store}>
       <SafeAreaProvider>
-        <StatusBar backgroundColor="black" barStyle="light-content" />
+        <StatusBar backgroundColor="black" />
         <Main />
         <FlashMessage position="top" />
       </SafeAreaProvider>
