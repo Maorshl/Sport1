@@ -16,6 +16,7 @@ export const moreSlice = createSlice({
         item => item.name === action.payload,
       );
       state.activeCategory = changeTo;
+      state.videos = changeTo.videos;
     },
   },
   extraReducers: builder => {
