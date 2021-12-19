@@ -1,6 +1,7 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import VodCategory from './VodCategory';
 
 interface category {
   name: string;
@@ -19,11 +20,7 @@ export default function VodBody() {
 
   return (
     <View style={styles.mainContainer}>
-      {categories.length && (
-        <TouchableOpacity>
-          <Text>{categories[0].name}</Text>
-        </TouchableOpacity>
-      )}
+      {categories.length ? <VodCategory item={categories[0]} /> : null}
     </View>
   );
 }
