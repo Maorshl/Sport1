@@ -3,7 +3,7 @@ import {FlatList, Text, View, StyleSheet, TouchableOpacity} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {useDispatch, useSelector} from 'react-redux';
 import {VodPageCategories} from './action/vod.action';
-import VodCategory from './VodCategory';
+import VodCategory from './CategoriesDropdown/VodCategory';
 import Spinner from 'react-native-loading-spinner-overlay';
 import VodBody from './VodBody';
 

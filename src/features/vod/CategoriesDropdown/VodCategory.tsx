@@ -7,9 +7,10 @@ import {
   Image,
   TouchableOpacity,
   FlatList,
+  Animated,
 } from 'react-native';
-import colors from '../../constants/colors';
-import SvgIcon from '../../utils/SvgIcon';
+import colors from '../../../constants/colors';
+import SvgIcon from '../../../utils/SvgIcon';
 import {useSelector} from 'react-redux';
 import VodSubCategory from './VodSubCategory';
 
@@ -26,23 +27,28 @@ interface state {
   vod: {
     categories: category[];
     loading: boolean;
+    activeCategory: {name: string};
   };
 }
 
 export default function VodCategory({item}: Props) {
-  const {categories} = useSelector((state: state) => state.vod);
+  const {categories, activeCategory} = useSelector((state: state) => state.vod);
   const [isPressed, setIsPressed] = useState<boolean>(false);
+
   return (
     <View>
       <TouchableOpacity
         style={styles.mainView}
         onPress={() => setIsPressed(prevState => !prevState)}>
-        <Image
-          source={require('./assets/UpArrow.png')}
-          style={styles.image}
+        <Animated.Image
+          source={require('../assets/UpArrow.png')}
+          style={{
+            ...styles.image,
+            transform: [{rotate: isPressed ? '0deg' : '180deg'}],
+          }}
           resizeMode="contain"
         />
-        <Text style={styles.text}>{item.name}</Text>
+        <Text style={styles.text}>{activeCategory.name}</Text>
       </TouchableOpacity>
       <View style={styles.listContainer}>
         {isPressed ? (

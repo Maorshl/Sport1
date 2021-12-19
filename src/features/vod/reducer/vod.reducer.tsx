@@ -5,13 +5,24 @@ export const moreSlice = createSlice({
   name: 'more',
   initialState: {
     categories: [],
+    activeCategory: {},
+    videos: [],
     loading: false,
     status: 'waiting',
   },
-  reducers: {},
+  reducers: {
+    changeActiveCategory: (state, action) => {
+      const changeTo = state.categories.find(
+        item => item.name === action.payload,
+      );
+      state.activeCategory = changeTo;
+    },
+  },
   extraReducers: builder => {
     builder.addCase(VodPageCategories.fulfilled, (state, action) => {
       state.categories = action.payload;
+      state.activeCategory = action.payload[0];
+      state.videos = action.payload[0].videos;
       state.loading = false;
     });
     builder.addCase(VodPageCategories.pending, (state, action) => {
@@ -26,6 +37,6 @@ export const moreSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const {} = moreSlice.actions;
+export const {changeActiveCategory} = moreSlice.actions;
 
 export default moreSlice.reducer;

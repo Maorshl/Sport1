@@ -6,19 +6,17 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import {useDispatch} from 'react-redux';
+import CategoryButton from './CategoryButton';
+// import {changeActiveCategory} from './reducer/vod.reducer';
 
 interface Props {
   item: {name: string};
 }
-export default function VodSubCategory({item}: Props) {
-  return (
-    <TouchableOpacity>
-      <View style={styles.mainView}>
-        <Text style={styles.text}>{item.name}</Text>
-      </View>
-    </TouchableOpacity>
-  );
-}
+
+const VodSubCategory = ({item}: Props) => {
+  return <CategoryButton item={item} />;
+};
 
 const styles = StyleSheet.create({
   mainView: {
@@ -37,3 +35,5 @@ const styles = StyleSheet.create({
     color: '#bebebe',
   },
 });
+
+export default VodSubCategory;
