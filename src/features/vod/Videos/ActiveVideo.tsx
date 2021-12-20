@@ -76,6 +76,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
   },
   text: {
+    paddingBottom: 3,
     fontFamily: 'NarkissBlock-Regular',
     fontSize: 18,
     fontWeight: 'bold',

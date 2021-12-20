@@ -13,6 +13,7 @@ import colors from '../../../constants/colors';
 import SvgIcon from '../../../utils/SvgIcon';
 import {useSelector} from 'react-redux';
 import VodSubCategory from './VodSubCategory';
+import SubCategory from './SubCategory';
 
 interface Props {
   item: {name: string};
@@ -27,7 +28,7 @@ interface state {
   vod: {
     categories: category[];
     loading: boolean;
-    activeCategory: {name: string};
+    activeCategory: {name: string; subCategories: {id: string; name: string}[]};
   };
 }
 
@@ -50,6 +51,9 @@ export default function VodCategory({item}: Props) {
         />
         <Text style={styles.text}>{activeCategory.name}</Text>
       </TouchableOpacity>
+      {/* {activeCategory.subCategories.length ? (
+        <SubCategory subCategories={activeCategory.subCategories} />
+      ) : null} */}
       <View
         style={{...styles.listContainer, display: isPressed ? null : 'none'}}>
         {isPressed ? (
@@ -62,6 +66,11 @@ export default function VodCategory({item}: Props) {
           />
         ) : null}
       </View>
+      {activeCategory.subCategories.length ? (
+        <View style={{height: Dimensions.get('screen').height * 0.05}}>
+          <SubCategory subCategories={activeCategory.subCategories} />
+        </View>
+      ) : null}
     </View>
   );
 }
