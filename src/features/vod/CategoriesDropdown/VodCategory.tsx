@@ -36,7 +36,7 @@ export default function VodCategory({item}: Props) {
   const [isPressed, setIsPressed] = useState<boolean>(false);
 
   return (
-    <View>
+    <View style={{zIndex: 1000}}>
       <TouchableOpacity
         style={styles.mainView}
         onPress={() => setIsPressed(prevState => !prevState)}>
@@ -50,7 +50,8 @@ export default function VodCategory({item}: Props) {
         />
         <Text style={styles.text}>{activeCategory.name}</Text>
       </TouchableOpacity>
-      <View style={styles.listContainer}>
+      <View
+        style={{...styles.listContainer, display: isPressed ? null : 'none'}}>
         {isPressed ? (
           <FlatList
             style={styles.list}
@@ -70,6 +71,15 @@ const styles = StyleSheet.create({
   list: {},
   listContainer: {
     height: Dimensions.get('screen').height * 0.3,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 12,
+    },
+    shadowOpacity: 0.58,
+    shadowRadius: 16.0,
+
+    elevation: 24,
   },
   image: {
     height: 9,

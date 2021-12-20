@@ -4,7 +4,7 @@ export const HEADER_KEY: string = 'x-sport1-mobile-app';
 import {showMessage, hideMessage} from 'react-native-flash-message';
 
 axios.defaults.baseURL = Base_URL;
-axios.defaults.timeout = 10000;
+axios.defaults.timeout = 13000;
 axios.defaults.headers.common[HEADER_KEY] = 'true';
 
 export async function getCategories() {
