@@ -14,6 +14,7 @@ export default function Videos() {
   return (
     <FlatList
       style={styles.list}
+      ListEmptyComponent={emptyComponent}
       ListFooterComponent={footerComponent}
       contentContainerStyle={styles.listChild}
       data={videos}
@@ -31,6 +32,18 @@ const footerComponent = () => {
         width: '100%',
         backgroundColor: 'rgb(20, 20, 20)',
       }}></View>
+  );
+};
+const emptyComponent = () => {
+  return (
+    <View
+      style={{
+        height: Dimensions.get('screen').height * 0.4,
+        width: '100%',
+        backgroundColor: 'rgb(20, 20, 20)',
+      }}>
+      <Text>Sorry No Results Found!</Text>
+    </View>
   );
 };
 

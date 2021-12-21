@@ -6,7 +6,6 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {useDispatch} from 'react-redux';
 import CategoryButton from './CategoryButton';
 // import {changeActiveCategory} from './reducer/vod.reducer';
 

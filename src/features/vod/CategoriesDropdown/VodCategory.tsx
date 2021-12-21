@@ -12,7 +12,7 @@ import {
 import colors from '../../../constants/colors';
 import SvgIcon from '../../../utils/SvgIcon';
 import {useSelector} from 'react-redux';
-import VodSubCategory from './VodSubCategory';
+import VodSubCategory from './VodCategoryDropdown';
 import SubCategory from './SubCategory';
 
 interface Props {

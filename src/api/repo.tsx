@@ -43,3 +43,17 @@ export async function getVodPage() {
     throw new Error(e.message);
   }
 }
+export async function getVideosByCategory(id: string) {
+  try {
+    const {data} = await axios.get(
+      `wp/v2/vod/videos/${id}?page=0&limit=20&include_children=false`,
+    );
+    return data;
+  } catch (e: any) {
+    showMessage({
+      message: 'An Error Occurred, Please try again later',
+      type: 'danger',
+    });
+    throw new Error(e.message);
+  }
+}

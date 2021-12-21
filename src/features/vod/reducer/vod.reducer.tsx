@@ -1,5 +1,5 @@
 import {createSlice, current} from '@reduxjs/toolkit';
-import {VodPageCategories} from '../action/vod.action';
+import {VodPageCategories, VideosByCategory} from '../action/vod.action';
 
 export const moreSlice = createSlice({
   name: 'more',
@@ -10,6 +10,7 @@ export const moreSlice = createSlice({
     activeVideo: {},
     loading: false,
     status: 'waiting',
+    activeSubCategory: '',
   },
   reducers: {
     changeActiveCategory: (state, action) => {
@@ -23,6 +24,9 @@ export const moreSlice = createSlice({
     changeActiveVideo: (state, action) => {
       const changeTo = state.videos.find(item => item.id === action.payload);
       state.activeVideo = changeTo;
+    },
+    changeActiveSubCategory: (state, action) => {
+      state.activeSubCategory = action.payload;
     },
   },
   extraReducers: builder => {
@@ -39,12 +43,28 @@ export const moreSlice = createSlice({
     builder.addCase(VodPageCategories.rejected, (state, action) => {
       state.status = 'Failed';
       state.loading = false;
-      console.error(action.error.message);
+      // console.error(action.error.message);
+    });
+    builder.addCase(VideosByCategory.fulfilled, (state, action) => {
+      state.videos = action.payload;
+      // state.loading = false;
+    });
+    builder.addCase(VideosByCategory.pending, (state, action) => {
+      // state.loading = true;
+    });
+    builder.addCase(VideosByCategory.rejected, (state, action) => {
+      state.status = 'Failed';
+      // state.loading = false;
+      // console.error(action.error.message);
     });
   },
 });
 
 // Action creators are generated for each case reducer function
-export const {changeActiveCategory, changeActiveVideo} = moreSlice.actions;
+export const {
+  changeActiveCategory,
+  changeActiveVideo,
+  changeActiveSubCategory,
+} = moreSlice.actions;
 
 export default moreSlice.reducer;
