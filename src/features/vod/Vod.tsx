@@ -25,7 +25,6 @@ const Vod = () => {
 
   useEffect(() => {
     dispatch(VodPageCategories(''));
-    console.log();
   }, []);
 
   return (

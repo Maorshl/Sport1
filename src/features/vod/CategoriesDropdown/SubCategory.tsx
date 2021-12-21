@@ -1,5 +1,12 @@
 import React, {useEffect} from 'react';
-import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  Dimensions,
+  FlatList,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import colors from '../../../constants/colors';
 import SubCategoryButton from './SubCategoryButton';
 import {useSelector, useDispatch} from 'react-redux';
@@ -42,6 +49,7 @@ const styles = StyleSheet.create({
   list: {
     height: 30,
     direction: 'rtl',
+    width: Dimensions.get('screen').width,
   },
   listChild: {},
 });
