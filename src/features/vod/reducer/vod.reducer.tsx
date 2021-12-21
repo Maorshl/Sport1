@@ -41,7 +41,6 @@ export const moreSlice = createSlice({
       state.loading = true;
     });
     builder.addCase(VodPageCategories.rejected, (state, action) => {
-      state.status = 'Failed';
       state.loading = false;
       // console.error(action.error.message);
     });
@@ -53,7 +52,6 @@ export const moreSlice = createSlice({
       // state.loading = true;
     });
     builder.addCase(VideosByCategory.rejected, (state, action) => {
-      state.status = 'Failed';
       // state.loading = false;
       // console.error(action.error.message);
     });

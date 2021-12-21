@@ -51,9 +51,6 @@ export default function VodCategory({item}: Props) {
         />
         <Text style={styles.text}>{activeCategory.name}</Text>
       </TouchableOpacity>
-      {/* {activeCategory.subCategories.length ? (
-        <SubCategory subCategories={activeCategory.subCategories} />
-      ) : null} */}
       <View
         style={{...styles.listContainer, display: isPressed ? null : 'none'}}>
         {isPressed ? (

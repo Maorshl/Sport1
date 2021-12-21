@@ -22,7 +22,7 @@ export const moreSlice = createSlice({
     builder.addCase(categoriesFetch.rejected, (state, action) => {
       state.status = 'Failed';
       state.loading = false;
-      console.error(action.error.message);
+      // console.error(action.error.message);
     });
     builder.addCase(searchFetch.fulfilled, (state, action) => {
       state.searchResults = action.payload.results;
@@ -34,7 +34,7 @@ export const moreSlice = createSlice({
     builder.addCase(searchFetch.rejected, (state, action) => {
       state.status = 'Failed';
       state.loading = false;
-      console.error(action.error.message);
+      // console.error(action.error.message);
     });
   },
 });

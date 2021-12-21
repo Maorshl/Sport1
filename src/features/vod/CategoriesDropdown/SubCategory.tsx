@@ -1,19 +1,33 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import colors from '../../../constants/colors';
 import SubCategoryButton from './SubCategoryButton';
+import {useSelector, useDispatch} from 'react-redux';
+import {changeActiveSubCategory} from '../reducer/vod.reducer';
 
 interface Props {
   subCategories: {id: string; name: string}[];
 }
 
+interface State {
+  vod: {
+    activeCategory: {id: string};
+  };
+}
+
 export default function SubCategory({subCategories}: Props) {
+  const {activeCategory} = useSelector((state: State) => state.vod);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(changeActiveSubCategory('הכל'));
+  }, []);
   return (
     <FlatList
       horizontal={true}
       style={styles.list}
       contentContainerStyle={styles.listChild}
-      data={subCategories}
+      data={[{name: 'הכל', id: activeCategory.id}, ...subCategories]}
       renderItem={RenderItem}
       keyExtractor={item => item.id}
     />
@@ -21,42 +35,13 @@ export default function SubCategory({subCategories}: Props) {
 }
 
 const RenderItem = ({item}) => {
-  return (
-    <SubCategoryButton item={item} />
-    // <TouchableOpacity
-    //   style={{
-    //     backgroundColor: '#282828',
-    //     alignItems: 'center',
-    //     justifyContent: 'space-between',
-    //   }}>
-    //   <Text
-    //     style={{
-    //       opacity: 0.58,
-    //       margin: 10,
-    //       fontFamily: 'NarkissBlock-Regular',
-    //       fontSize: 17,
-    //       fontWeight: '500',
-    //       fontStyle: 'normal',
-    //       letterSpacing: 0,
-    //       textAlign: 'right',
-    //       color: '#e5e5e5',
-    //     }}>
-    //     {item.name}
-    //   </Text>
-    //   <View
-    //     style={{
-    //       backgroundColor: colors.TURQUOISE_GREEN,
-    //       height: 4,
-    //       width: '100%',
-    //       bottom: 0,
-    //     }}></View>
-    // </TouchableOpacity>
-  );
+  return <SubCategoryButton item={item} />;
 };
 
 const styles = StyleSheet.create({
   list: {
     height: 30,
+    direction: 'rtl',
   },
   listChild: {},
 });
