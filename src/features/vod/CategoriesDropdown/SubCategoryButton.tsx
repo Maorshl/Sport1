@@ -28,7 +28,17 @@ export default function SubCategoryButton({item}: Props) {
 
   return (
     <TouchableOpacity onPress={onPress} style={styles.mainContainer}>
-      <Text style={styles.text}>{item.name}</Text>
+      <Text
+        style={{
+          ...styles.text,
+          color:
+            activeSubCategory === item.name
+              ? colors.TURQUOISE_GREEN
+              : '#e5e5e5',
+          opacity: activeSubCategory === item.name ? 1 : 0.58,
+        }}>
+        {item.name}
+      </Text>
       <View
         style={{
           ...styles.bottomBorder,
@@ -53,7 +63,6 @@ const styles = StyleSheet.create({
     fontStyle: 'normal',
     letterSpacing: 0,
     textAlign: 'right',
-    color: '#e5e5e5',
   },
   bottomBorder: {
     backgroundColor: colors.TURQUOISE_GREEN,

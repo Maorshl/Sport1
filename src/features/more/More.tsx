@@ -52,7 +52,7 @@ function More() {
     <SafeAreaView>
       <Spinner visible={loading} textContent={'Loading...'} />
       <TopBar />
-      <View style={{margin: 3}}>
+      <View style={{margin: 3, direction: 'rtl'}}>
         <Search
           placeholder="חפש קבוצות, ליגות וכתבות..."
           cancelTitle="בטל"
@@ -60,8 +60,14 @@ function More() {
           cancelButtonStyle={styles.search}
           inputStyle={{
             ...styles.input,
+
+            direction: 'ltr',
             borderColor: focused ? '#141414' : '#e9e9e9',
           }}
+          placeholderExpandedMargin={0}
+          searchIconCollapsedMargin={0}
+          searchIconExpandedMargin={0}
+          placeholderCollapsedMargin={0}
           onSearch={onSearch}
           onFocus={onFocus}
           onCancel={onCancel}

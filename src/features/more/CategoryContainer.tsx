@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
     fontSize: 17,
     fontWeight: Platform.select({ios: '900', android: '900'}),
     fontStyle: 'normal',
-    fontFamily: 'NarkissBlock-Regular',
+    fontFamily: 'NarkissBlock-Bold',
     lineHeight: 18,
     letterSpacing: 0.1,
     textAlign: 'right',

@@ -31,14 +31,16 @@ export default function MyCarousel() {
           }}>
           <Text style={styles.button}>דלג</Text>
         </TouchableOpacity>
-        <Carousel
-          layout={'default'}
-          data={carouselItems}
-          sliderWidth={Dimensions.get('screen').width}
-          itemWidth={Dimensions.get('screen').width}
-          renderItem={_renderItem}
-          onSnapToItem={(index: number) => setIndex(index)}
-        />
+        <View style={{direction: 'rtl'}}>
+          <Carousel
+            layout={'default'}
+            data={carouselItems}
+            sliderWidth={Dimensions.get('screen').width}
+            itemWidth={Dimensions.get('screen').width}
+            renderItem={_renderItem}
+            onSnapToItem={(index: number) => setIndex(index)}
+          />
+        </View>
         {index === 1 || index === 0 ? (
           <SlideIndicator index={index} />
         ) : (

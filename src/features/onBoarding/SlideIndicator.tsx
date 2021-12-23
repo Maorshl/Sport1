@@ -11,7 +11,7 @@ export default function SlideIndicator({index}: Props) {
       <View
         style={{
           ...styles.ball,
-          backgroundColor: index === 0 ? colors.TURQUOISE_GREEN : '#cecece',
+          backgroundColor: index === 2 ? colors.TURQUOISE_GREEN : '#cecece',
         }}></View>
       <View
         style={{
@@ -21,7 +21,7 @@ export default function SlideIndicator({index}: Props) {
       <View
         style={{
           ...styles.ball,
-          backgroundColor: index === 2 ? colors.TURQUOISE_GREEN : '#cecece',
+          backgroundColor: index === 0 ? colors.TURQUOISE_GREEN : '#cecece',
         }}></View>
     </View>
   );

@@ -64,7 +64,11 @@ export default function VodCategory({item}: Props) {
         ) : null}
       </View>
       {activeCategory.subCategories.length ? (
-        <View style={{height: Dimensions.get('screen').height * 0.05}}>
+        <View
+          style={{
+            height: Dimensions.get('screen').height * 0.05,
+            backgroundColor: '#282828',
+          }}>
           <SubCategory subCategories={activeCategory.subCategories} />
         </View>
       ) : null}
@@ -99,7 +103,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   text: {
-    fontFamily: 'NarkissBlock-Regular',
+    fontFamily: 'NarkissBlock-Bold',
     padding: 10,
     fontSize: 18,
     fontWeight: '500',
