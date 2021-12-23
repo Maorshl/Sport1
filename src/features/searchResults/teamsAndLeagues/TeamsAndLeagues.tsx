@@ -8,7 +8,6 @@ import {
   Image,
 } from 'react-native';
 import TeamCircle from './TeamCircle';
-import SvgIcon from '../../../utils/SvgIcon';
 
 interface Props {
   data: any;

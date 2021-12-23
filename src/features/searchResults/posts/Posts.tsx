@@ -7,7 +7,6 @@ import {
   Dimensions,
   Image,
 } from 'react-native';
-import SvgIcon from '../../../utils/SvgIcon';
 import PostContainer from './PostContainer';
 
 interface Props {
