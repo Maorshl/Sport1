@@ -22,7 +22,7 @@ export default function MyCarousel() {
   const dispatch = useDispatch();
   const [index, setIndex] = useState<number>(0);
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{backgroundColor: '#edeef0'}}>
       <View style={styles.carouselContainer}>
         <TouchableOpacity
           style={styles.buttonContainer}
