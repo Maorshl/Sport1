@@ -41,6 +41,7 @@ export const moreSlice = createSlice({
       state.loading = true;
     });
     builder.addCase(VodPageCategories.rejected, (state, action) => {
+      console.log(action.payload);
       state.loading = false;
       // console.error(action.error.message);
     });
