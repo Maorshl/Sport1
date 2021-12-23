@@ -1,5 +1,12 @@
 import React from 'react';
-import {View, Text, FlatList, StyleSheet, Dimensions} from 'react-native';
+import {
+  View,
+  Text,
+  FlatList,
+  StyleSheet,
+  Dimensions,
+  Image,
+} from 'react-native';
 import TeamCircle from './TeamCircle';
 import SvgIcon from '../../../utils/SvgIcon';
 
@@ -84,7 +91,10 @@ const ListEmptyComponent = ({item}: {item: any}) => {
         }}>
         לא נמצאו קבוצות או ליגות התואמות את החיפוש
       </Text>
-      <SvgIcon name="emptyIcon" viewBox="0 0 30 30" width={40} height={40} />
+      <Image
+        source={require('../assets/noResults.png')}
+        style={{height: 40, width: 40}}
+      />
     </View>
   );
 };
