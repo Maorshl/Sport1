@@ -20,7 +20,7 @@ export default function PostContainer({post}: Props) {
     new Date(post.date).toLocaleDateString();
 
   return (
-    <TouchableOpacity>
+    <TouchableOpacity style={styles.shadow}>
       <View style={styles.mainContainer}>
         <View style={styles.textContainer}>
           <Text style={styles.text}>{post.title}</Text>
@@ -37,6 +37,16 @@ export default function PostContainer({post}: Props) {
   );
 }
 const styles = StyleSheet.create({
+  shadow: {
+    shadowColor: Platform.OS === 'ios' ? 'rgba(0, 0, 0, 0.08)' : '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowRadius: 4,
+    shadowOpacity: 1,
+    elevation: 4,
+  },
   textContainer: {
     maxWidth: '60%',
     justifyContent: 'space-around',
