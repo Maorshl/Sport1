@@ -12,7 +12,7 @@ import SvgIcon from '../../utils/SvgIcon';
 
 interface Props {
   focused: boolean;
-  image: any;
+  image: string;
   label: string;
   iconSize: {height: number; width: number};
   viewBox: string;

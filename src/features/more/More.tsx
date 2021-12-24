@@ -72,7 +72,7 @@ function More() {
           onFocus={onFocus}
           onCancel={onCancel}
           inputHeight={45}
-          positionRightDelete={Dimensions.get('screen').width * 0.88}
+          positionRightDelete={20}
         />
       </View>
       {searched && !loading ? (

@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     shadowOpacity: 1,
     elevation: 4,
-    margin: 3,
+    margin: 6,
     flexDirection: 'row',
     justifyContent: 'flex-end',
     overflow: 'hidden',

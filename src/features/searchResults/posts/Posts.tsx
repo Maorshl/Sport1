@@ -17,6 +17,7 @@ export default function Posts({data}: Props) {
     <View style={styles.list}>
       <Text style={styles.text}>חדשות ותקצירים</Text>
       <FlatList
+        ListFooterComponent={footerComponent}
         ListEmptyComponent={ListEmptyComponent}
         contentContainerStyle={styles.listContainer}
         data={data}
@@ -82,4 +83,8 @@ const ListEmptyComponent = ({item}: {item: any}) => {
       />
     </View>
   );
+};
+
+const footerComponent = () => {
+  return <View style={{height: 40}}></View>;
 };
