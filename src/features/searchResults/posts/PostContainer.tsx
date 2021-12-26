@@ -24,14 +24,14 @@ interface Props {
 }
 
 export default function PostContainer({post}: Props) {
-  const timeToDisplay = moment(post.date).fromNow();
+  const timeToDisplay = convertTimeToHebrew(moment(post.date).fromNow(true));
 
   return (
     <TouchableOpacity style={styles.shadow}>
       <View style={styles.mainContainer}>
         <View style={styles.textContainer}>
           <Text style={styles.text}>{post.title}</Text>
-          <Text style={styles.date}>{timeToDisplay}</Text>
+          <Text style={styles.date}>{'לפני ' + timeToDisplay}</Text>
         </View>
         <Image
           source={{
@@ -105,7 +105,44 @@ const styles = StyleSheet.create({
   },
 });
 
-// const convertTimeToHebrew = (date: string)=> {
-//   const [time, unit] = date.split(' ')
-//   switch unit
-// }
+const convertTimeToHebrew = (date: string) => {
+  let unitsInHebrew = '';
+  const [time, unit] = date.split(' ');
+  switch (unit) {
+    case 'days':
+      unitsInHebrew = 'ימים';
+      break;
+    case 'day':
+      unitsInHebrew = 'יום';
+      break;
+    case 'minutes':
+      unitsInHebrew = 'דקות';
+      break;
+    case 'minute':
+      unitsInHebrew = 'דקה';
+      break;
+    case 'hours':
+      unitsInHebrew = 'שעות';
+      break;
+    case 'hour':
+      unitsInHebrew = 'שעה';
+      break;
+    case 'years':
+      unitsInHebrew = 'שנים';
+      break;
+    case 'year':
+      unitsInHebrew = 'שנה';
+      break;
+    case 'months':
+      unitsInHebrew = 'חודשים';
+      break;
+    case 'month':
+      unitsInHebrew = 'חודש';
+      break;
+  }
+  if (time === 'a') {
+    return unitsInHebrew;
+  } else {
+    return time + ' ' + unitsInHebrew;
+  }
+};
