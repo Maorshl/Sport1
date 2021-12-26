@@ -15,6 +15,7 @@
 		7EF68E3733C33B6898317E18 /* libPods-wiilwork-wiilworkTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABFE59519B596E51CEFDCCC0 /* libPods-wiilwork-wiilworkTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		C768245208BF4C4287E7DD77 /* NarkissBlock-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = DCAA9632583F4467A0C1A249 /* NarkissBlock-Regular.otf */; };
+		571E976AC388478AB5CDD4D7 /* NarkissBlock-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E08CF4851C4D46F28BC32A6A /* NarkissBlock-Bold.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,8 +45,9 @@
 		ABFE59519B596E51CEFDCCC0 /* libPods-wiilwork-wiilworkTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-wiilwork-wiilworkTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0A881CF5CF3F2B244570E2A /* Pods-wiilwork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wiilwork.debug.xcconfig"; path = "Target Support Files/Pods-wiilwork/Pods-wiilwork.debug.xcconfig"; sourceTree = "<group>"; };
 		D00AAFFCFCFDA5787532823F /* Pods-wiilwork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-wiilwork.release.xcconfig"; path = "Target Support Files/Pods-wiilwork/Pods-wiilwork.release.xcconfig"; sourceTree = "<group>"; };
-		DCAA9632583F4467A0C1A249 /* NarkissBlock-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "NarkissBlock-Regular.otf"; path = "../src/assets/fonts/NarkissBlock-Regular.otf"; sourceTree = "<group>"; };
+		DCAA9632583F4467A0C1A249 /* NarkissBlock-Regular.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "NarkissBlock-Regular.otf"; path = "../src/assets/fonts/NarkissBlock-Regular.otf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		E08CF4851C4D46F28BC32A6A /* NarkissBlock-Bold.otf */ = {isa = PBXFileReference; name = "NarkissBlock-Bold.otf"; path = "../src/assets/fonts/NarkissBlock-Bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,7 +150,6 @@
 				6C97AB639B58BBB4B15BBE30 /* Pods-wiilwork-wiilworkTests.debug.xcconfig */,
 				1D0AE47A65C8663E3B452821 /* Pods-wiilwork-wiilworkTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -156,9 +157,9 @@
 			isa = PBXGroup;
 			children = (
 				DCAA9632583F4467A0C1A249 /* NarkissBlock-Regular.otf */,
+				E08CF4851C4D46F28BC32A6A /* NarkissBlock-Bold.otf */,
 			);
 			name = Resources;
-			path = "";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +259,7 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				C768245208BF4C4287E7DD77 /* NarkissBlock-Regular.otf in Resources */,
+				571E976AC388478AB5CDD4D7 /* NarkissBlock-Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
