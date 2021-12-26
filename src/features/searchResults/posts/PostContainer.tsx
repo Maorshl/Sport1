@@ -23,8 +23,6 @@ interface Props {
   post: Post;
 }
 
-moment().format();
-
 export default function PostContainer({post}: Props) {
   const timeToDisplay = moment(post.date).fromNow();
 
@@ -106,3 +104,8 @@ const styles = StyleSheet.create({
     bottom: 2,
   },
 });
+
+// const convertTimeToHebrew = (date: string)=> {
+//   const [time, unit] = date.split(' ')
+//   switch unit
+// }

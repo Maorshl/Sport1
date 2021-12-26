@@ -56,6 +56,8 @@ export default function VodCategory({item}: Props) {
         {isPressed ? (
           <FlatList
             style={styles.list}
+            ListFooterComponent={<View></View>}
+            ListFooterComponentStyle={{height: 5}}
             contentContainerStyle={styles.listChild}
             data={categories}
             renderItem={VodSubCategory}

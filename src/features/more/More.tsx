@@ -54,25 +54,22 @@ function More() {
       <TopBar />
       <View style={{margin: 3, direction: 'rtl'}}>
         <Search
-          placeholder="חפש קבוצות, ליגות וכתבות..."
+          placeholder="חפש קבוצות, ליגות וכתבות"
           cancelTitle="בטל"
           backgroundColor="rgb(242, 242, 242)"
           cancelButtonStyle={styles.search}
           inputStyle={{
             ...styles.input,
-
-            direction: 'ltr',
             borderColor: focused ? '#141414' : '#e9e9e9',
           }}
-          placeholderExpandedMargin={0}
-          searchIconCollapsedMargin={0}
-          searchIconExpandedMargin={0}
-          placeholderCollapsedMargin={0}
+          searchIconCollapsedMargin={60}
+          direction={'rtl'}
+          middleWidth={250}
           onSearch={onSearch}
           onFocus={onFocus}
           onCancel={onCancel}
           inputHeight={45}
-          positionRightDelete={20}
+          positionRightDelete={Dimensions.get('screen').width * 0.07}
         />
       </View>
       {searched && !loading ? (

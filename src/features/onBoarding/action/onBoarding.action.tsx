@@ -8,7 +8,7 @@ export const firstTimeCheck = createAsyncThunk(
     try {
       return await getData();
     } catch (e: any) {
-      console.log('nisan');
+      rejectWithValue(e.message);
     }
   },
 );
