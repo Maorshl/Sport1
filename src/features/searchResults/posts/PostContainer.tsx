@@ -8,6 +8,7 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
+import moment from 'moment';
 
 export interface Post {
   id: string;
@@ -22,11 +23,10 @@ interface Props {
   post: Post;
 }
 
+moment().format();
+
 export default function PostContainer({post}: Props) {
-  const timeToDisplay =
-    new Date(post.date).toTimeString().slice(0, 5) +
-    ' ' +
-    new Date(post.date).toLocaleDateString();
+  const timeToDisplay = moment(post.date).fromNow();
 
   return (
     <TouchableOpacity style={styles.shadow}>
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
   },
   mainContainer: {
     height: Dimensions.get('screen').height * 0.15,
-    width: Dimensions.get('screen').width * 0.9,
+    width: Dimensions.get('screen').width * 0.955,
     borderRadius: 9,
     backgroundColor: '#ffffff',
     shadowColor: Platform.OS === 'ios' ? 'rgba(0, 0, 0, 0.08)' : '#000',
