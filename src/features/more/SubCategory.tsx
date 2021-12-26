@@ -10,14 +10,16 @@ import {Category} from './CategoryContainer';
 
 interface Props {
   item: Category;
+  index: number;
 }
 
-export default function SubCategory({item}: Props) {
+export default function SubCategory({item, index}: Props) {
   return (
     <TouchableOpacity>
-      <View style={styles.subCategory}>
+      <View style={{...styles.subCategory, height: index ? 40 : 32}}>
+        <View
+          style={{...styles.divideLine, display: index ? null : 'none'}}></View>
         <Text style={styles.text}>{item.title}</Text>
-        <View style={styles.divideLine}></View>
       </View>
     </TouchableOpacity>
   );

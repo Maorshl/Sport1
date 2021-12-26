@@ -55,6 +55,8 @@ const CategoryContainer = ({item}: Props) => {
         <Animatable.View animation="slideInDown">
           <FlatList
             style={styles.list}
+            ListFooterComponent={<View></View>}
+            ListFooterComponentStyle={{height: 5}}
             contentContainerStyle={styles.listChild}
             data={item.children}
             renderItem={SubCategory}
