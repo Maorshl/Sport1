@@ -28,7 +28,7 @@ const footerComponent = () => {
   return (
     <View
       style={{
-        height: 40,
+        height: 60,
         width: '100%',
         backgroundColor: 'rgb(20, 20, 20)',
       }}></View>

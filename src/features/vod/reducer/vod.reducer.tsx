@@ -5,6 +5,7 @@ export const moreSlice = createSlice({
   name: 'more',
   initialState: {
     categories: [],
+    dropdownOpen: false,
     activeCategory: {},
     videos: [],
     activeVideo: {},
@@ -19,6 +20,7 @@ export const moreSlice = createSlice({
       );
       state.activeCategory = changeTo;
       state.videos = changeTo.videos;
+      state.dropdownOpen = false;
       state.activeVideo = changeTo.videos[0];
     },
     changeActiveVideo: (state, action) => {
@@ -27,6 +29,9 @@ export const moreSlice = createSlice({
     },
     changeActiveSubCategory: (state, action) => {
       state.activeSubCategory = action.payload;
+    },
+    openDropdown: state => {
+      state.dropdownOpen = !state.dropdownOpen;
     },
   },
   extraReducers: builder => {
@@ -64,6 +69,7 @@ export const {
   changeActiveCategory,
   changeActiveVideo,
   changeActiveSubCategory,
+  openDropdown,
 } = moreSlice.actions;
 
 export default moreSlice.reducer;

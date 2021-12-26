@@ -10,8 +10,9 @@ import {
   Animated,
 } from 'react-native';
 import colors from '../../../constants/colors';
+import {openDropdown} from '../reducer/vod.reducer';
 import SvgIcon from '../../../utils/SvgIcon';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import VodSubCategory from './VodCategoryDropdown';
 import SubCategory from './SubCategory';
 
@@ -26,6 +27,7 @@ interface category {
 
 interface state {
   vod: {
+    dropdownOpen: boolean;
     categories: category[];
     loading: boolean;
     activeCategory: {name: string; subCategories: {id: string; name: string}[]};
@@ -33,14 +35,17 @@ interface state {
 }
 
 export default function VodCategory({item}: Props) {
-  const {categories, activeCategory} = useSelector((state: state) => state.vod);
+  const {categories, activeCategory, dropdownOpen} = useSelector(
+    (state: state) => state.vod,
+  );
   const [isPressed, setIsPressed] = useState<boolean>(false);
+  const dispatch = useDispatch();
 
   return (
     <View style={{zIndex: 1000}}>
       <TouchableOpacity
         style={styles.mainView}
-        onPress={() => setIsPressed(prevState => !prevState)}>
+        onPress={() => dispatch(openDropdown())}>
         <Animated.Image
           source={require('../assets/UpArrow.png')}
           style={{
@@ -52,8 +57,11 @@ export default function VodCategory({item}: Props) {
         <Text style={styles.text}>{activeCategory.name}</Text>
       </TouchableOpacity>
       <View
-        style={{...styles.listContainer, display: isPressed ? null : 'none'}}>
-        {isPressed ? (
+        style={{
+          ...styles.listContainer,
+          display: dropdownOpen ? null : 'none',
+        }}>
+        {dropdownOpen ? (
           <FlatList
             style={styles.list}
             ListFooterComponent={<View></View>}
