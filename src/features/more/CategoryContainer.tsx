@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {
   View,
   Text,
@@ -7,11 +7,11 @@ import {
   Platform,
   Dimensions,
   FlatList,
-  Animated,
 } from 'react-native';
 import SvgIcon from '../../utils/SvgIcon';
-import Colors from '../../constants/colors';
 import SubCategory from './SubCategory';
+import {useSelector, useDispatch} from 'react-redux';
+import {moreChangeActiveCategory} from './reducer/more.reducer';
 import * as Animatable from 'react-native-animatable';
 
 export interface Category {
@@ -21,16 +21,24 @@ export interface Category {
   children?: Category[];
 }
 
+interface State {
+  more: {moreActiveCategory: string};
+}
+
 interface Props {
   item: Category;
 }
 
 const CategoryContainer = ({item}: Props) => {
-  const [isPressed, setIsPressed] = useState<boolean>(false);
+  const {moreActiveCategory} = useSelector((state: State) => state.more);
+  const dispatch = useDispatch();
 
   return (
     <>
-      <TouchableOpacity onPress={() => setIsPressed(prevState => !prevState)}>
+      <TouchableOpacity
+        onPress={() => {
+          dispatch(moreChangeActiveCategory(item.title));
+        }}>
         <View style={styles.firstView}>
           <View>
             {item.children?.length ? (
@@ -51,7 +59,7 @@ const CategoryContainer = ({item}: Props) => {
         </View>
       </TouchableOpacity>
 
-      {item.children?.length && isPressed ? (
+      {item.children?.length && moreActiveCategory === item.title ? (
         <Animatable.View animation="slideInDown">
           <FlatList
             style={styles.list}
