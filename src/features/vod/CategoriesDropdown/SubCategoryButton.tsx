@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     margin: 10,
     fontFamily: 'NarkissBlock-Regular',
     fontSize: 17,
-    fontWeight: '500',
+    // fontWeight: '500',
     fontStyle: 'normal',
     letterSpacing: 0,
     textAlign: 'right',
