@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, {AxiosError} from 'axios';
 export const Base_URL: string = 'https://sp1dv.maariv.co.il/wp-json';
 export const HEADER_KEY: string = 'x-sport1-mobile-app';
 import {showMessage, hideMessage} from 'react-native-flash-message';

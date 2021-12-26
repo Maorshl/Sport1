@@ -9,8 +9,17 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
+export interface Post {
+  id: string;
+  date: string;
+  title: string;
+  featured_image: {
+    url: string;
+  };
+}
+
 interface Props {
-  post: any;
+  post: Post;
 }
 
 export default function PostContainer({post}: Props) {

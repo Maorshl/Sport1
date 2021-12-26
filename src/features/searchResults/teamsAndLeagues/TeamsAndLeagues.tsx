@@ -9,8 +9,14 @@ import {
 } from 'react-native';
 import TeamCircle from './TeamCircle';
 
+interface Team {
+  logo: {url: string} | string;
+  name: string;
+  id: string;
+}
+
 interface Props {
-  data: any;
+  data: {teams: Team[]; leagues: Team[]};
 }
 export default function TeamsAndLeagues({data}: Props) {
   const allTeamsAndLeagues = data.teams.concat(data.leagues);
@@ -63,10 +69,10 @@ const styles = StyleSheet.create({
   },
 });
 
-const RenderItem = ({item}: {item: any}) => {
+const RenderItem = ({item}: {item: Team}) => {
   return <TeamCircle team={item}></TeamCircle>;
 };
-const ListEmptyComponent = ({item}: {item: any}) => {
+const ListEmptyComponent = () => {
   return (
     <View
       style={{

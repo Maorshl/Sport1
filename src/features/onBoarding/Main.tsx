@@ -6,9 +6,17 @@ import Navigator from '../navigation/Container';
 import {firstTimeCheck} from './action/onBoarding.action';
 import Spinner from 'react-native-loading-spinner-overlay';
 
+interface State {
+  onBoarding: {
+    isFirstTime: boolean;
+  };
+}
+
 export default function Main() {
   const dispatch = useDispatch();
-  const isFirstTime = useSelector((state: any) => state.onBoarding.isFirstTime);
+  const isFirstTime = useSelector(
+    (state: State) => state.onBoarding.isFirstTime,
+  );
 
   useEffect(() => {
     dispatch(firstTimeCheck(''));

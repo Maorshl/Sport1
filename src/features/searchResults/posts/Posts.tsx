@@ -8,9 +8,10 @@ import {
   Image,
 } from 'react-native';
 import PostContainer from './PostContainer';
+import {Post} from './PostContainer';
 
 interface Props {
-  data: any;
+  data: Post[];
 }
 export default function Posts({data}: Props) {
   return (
@@ -49,10 +50,10 @@ const styles = StyleSheet.create({
   },
 });
 
-const RenderItem = ({item}: {item: any}) => {
+const RenderItem = ({item}: {item: Post}) => {
   return <PostContainer post={item}></PostContainer>;
 };
-const ListEmptyComponent = ({item}: {item: any}) => {
+const ListEmptyComponent = () => {
   return (
     <View
       style={{
