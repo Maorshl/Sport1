@@ -21,7 +21,10 @@ export default function VideoContainer({item, index}) {
         style={{...styles.video, paddingTop: index ? null : '2%'}}
         onPress={() => dispatch(changeActiveVideo(item.id))}>
         <View style={styles.top}>
-          <Text style={styles.text}>{item.title}</Text>
+          <View style={{flexDirection: 'column', width: '50%'}}>
+            {!index ? <Text style={styles.next}>הבא בתור</Text> : null}
+            <Text style={styles.text}>{item.title}</Text>
+          </View>
           {error ? (
             <Image
               style={{
@@ -54,6 +57,16 @@ const styles = StyleSheet.create({
     marginRight: -6,
     borderRadius: 4,
   },
+  next: {
+    fontFamily: 'NarkissBlock-Regular',
+    fontSize: 15,
+    fontWeight: '500',
+    fontStyle: 'normal',
+    letterSpacing: 0,
+    textAlign: 'right',
+    color: '#969696',
+    paddingBottom: 2,
+  },
   top: {
     width: Dimensions.get('screen').width,
     flexDirection: 'row',
@@ -79,7 +92,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontFamily: 'NarkissBlock-Regular',
-    width: '50%',
+    width: '100%',
     fontSize: 17,
     fontWeight: 'normal',
     fontStyle: 'normal',
