@@ -69,7 +69,7 @@ export default function ActiveVideo({video}: Props) {
           <Text style={styles.text}>{activeVideo.video_name}</Text>
           <Text style={styles.date}>
             {moment(activeVideo.date).format('hh:mm') +
-              ' ' +
+              '  ' +
               moment(activeVideo.date).format('DD.MM.YY')}
           </Text>
         </View>
@@ -111,6 +111,7 @@ const styles = StyleSheet.create({
     opacity: 0.5,
     fontFamily: 'NarkissBlock-Regular',
     fontSize: 15,
+    paddingTop: '0.5%',
     fontWeight: 'normal',
     fontStyle: 'normal',
     letterSpacing: 0,
