@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     height: 40,
   },
   divideLine: {
-    width: 340,
+    width: Dimensions.get('screen').width * 0.9,
     height: 1,
     opacity: 0.17,
     borderStyle: 'solid',
