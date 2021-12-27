@@ -50,7 +50,7 @@ export default function VodCategory({item}: Props) {
           source={require('../assets/UpArrow.png')}
           style={{
             ...styles.image,
-            transform: [{rotate: isPressed ? '0deg' : '180deg'}],
+            transform: [{rotateX: dropdownOpen ? '0deg' : '180deg'}],
           }}
           resizeMode="contain"
         />
@@ -73,10 +73,11 @@ export default function VodCategory({item}: Props) {
           />
         ) : null}
       </View>
-      {activeCategory.subCategories.length ? (
+      {activeCategory.subCategories.length && !dropdownOpen ? (
         <View
           style={{
-            height: Dimensions.get('screen').height * 0.05,
+            height: Dimensions.get('screen').height * 0.055,
+            paddingTop: 5,
             backgroundColor: '#282828',
           }}>
           <SubCategory subCategories={activeCategory.subCategories} />

@@ -13,6 +13,7 @@ export default function CategoryButton({item}) {
   const dispatch = useDispatch();
   return (
     <TouchableOpacity onPress={() => dispatch(changeActiveCategory(item.name))}>
+      <View style={styles.divider}></View>
       <View style={styles.mainView}>
         <Text style={styles.text}>{item.name}</Text>
       </View>
@@ -21,6 +22,15 @@ export default function CategoryButton({item}) {
 }
 
 const styles = StyleSheet.create({
+  divider: {
+    width: '94%',
+    alignSelf: 'center',
+    height: 2,
+    opacity: 0.17,
+    borderStyle: 'solid',
+    borderWidth: 1,
+    borderColor: '#979797',
+  },
   mainView: {
     flexDirection: 'row',
     justifyContent: 'flex-end',
@@ -29,6 +39,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontFamily: 'NarkissBlock-Regular',
+    paddingRight: '2.5%',
     fontSize: 18,
     fontWeight: 'normal',
     fontStyle: 'normal',

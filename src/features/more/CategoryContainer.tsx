@@ -7,6 +7,7 @@ import {
   Platform,
   Dimensions,
   FlatList,
+  Animated,
 } from 'react-native';
 import SvgIcon from '../../utils/SvgIcon';
 import SubCategory from './SubCategory';
@@ -40,19 +41,25 @@ const CategoryContainer = ({item}: Props) => {
           dispatch(moreChangeActiveCategory(item.title));
         }}>
         <View style={styles.firstView}>
-          <View>
+          <Animated.View
+            style={{
+              transform:
+                moreActiveCategory === item.title
+                  ? [{rotateX: '180deg'}]
+                  : [{rotateX: '0deg'}],
+            }}>
             {item.children?.length ? (
               <SvgIcon
                 name="downArrow"
                 width={12}
                 height={6}
                 viewBox="0 0 10 6"
-                style={styles.icon}
+                style={{...styles.icon}}
               />
             ) : (
               <></>
             )}
-          </View>
+          </Animated.View>
           <View>
             <Text style={styles.title}>{item.title}</Text>
           </View>
@@ -60,7 +67,17 @@ const CategoryContainer = ({item}: Props) => {
       </TouchableOpacity>
 
       {item.children?.length && moreActiveCategory === item.title ? (
-        <Animatable.View animation="slideInDown">
+        <Animatable.View
+          animation="slideInDown"
+          style={{
+            shadowColor: 'rgba(0, 0, 0, 0.15)',
+            shadowOffset: {
+              width: 0,
+              height: 1,
+            },
+            shadowRadius: 3,
+            shadowOpacity: 1,
+          }}>
           <FlatList
             style={styles.list}
             ListFooterComponent={<View></View>}

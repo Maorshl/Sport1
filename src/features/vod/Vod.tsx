@@ -29,11 +29,7 @@ const Vod = () => {
 
   return (
     <SafeAreaView>
-      {loading ? (
-        <Spinner visible={loading} textContent={'Loading...'} />
-      ) : (
-        <VodBody />
-      )}
+      {loading ? <Spinner visible={loading} /> : <VodBody />}
     </SafeAreaView>
   );
 };

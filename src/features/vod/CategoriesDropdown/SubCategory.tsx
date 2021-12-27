@@ -50,6 +50,7 @@ const styles = StyleSheet.create({
     height: 30,
     direction: 'rtl',
     width: Dimensions.get('screen').width,
+    // marginBottom: Dimensions.get('screen').height * 0.02,
   },
   listChild: {},
 });

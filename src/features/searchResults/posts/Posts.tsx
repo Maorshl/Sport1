@@ -37,7 +37,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   text: {
-    padding: 10,
+    marginTop: 20,
+    paddingRight: 13,
     // marginRight: Dimensions.get('screen').width * 0.033,
     fontFamily: 'NarkissBlock-Regular',
     fontSize: 15,
@@ -67,7 +68,7 @@ const ListEmptyComponent = () => {
       }}>
       <Text
         style={{
-          maxWidth: '50%',
+          maxWidth: '60%',
           fontFamily: 'NarkissBlock-Regular',
           fontSize: 15,
           fontWeight: 'normal',
@@ -75,11 +76,12 @@ const ListEmptyComponent = () => {
           lineHeight: 20,
           letterSpacing: 0,
           textAlign: 'right',
+          color: 'rgb(160, 160, 160)',
         }}>
         לא נמצאו חדשות או תקצירים התואמים את החיפוש
       </Text>
       <Image
-        source={require('../assets/noResults.png')}
+        source={require('../assets/noReusltsTry.png')}
         style={{height: 40, width: 40}}
       />
     </View>

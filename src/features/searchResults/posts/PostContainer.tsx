@@ -71,8 +71,8 @@ const styles = StyleSheet.create({
     color: '#121212',
   },
   mainContainer: {
-    height: Dimensions.get('screen').height * 0.15,
-    width: Dimensions.get('screen').width * 0.955,
+    height: Dimensions.get('screen').height * 0.13,
+    width: Dimensions.get('screen').width * 0.94,
     borderRadius: 9,
     backgroundColor: '#ffffff',
     shadowColor: Platform.OS === 'ios' ? 'rgba(0, 0, 0, 0.08)' : '#000',
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     letterSpacing: 0,
     textAlign: 'right',
     color: '#9e9e9e',
-    maxWidth: '95%',
+    maxWidth: '100%',
     bottom: 2,
   },
 });

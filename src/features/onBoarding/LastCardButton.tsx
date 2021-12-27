@@ -38,21 +38,11 @@ export default function LastCardButton() {
   );
 }
 
-// export const finishOnBoarding = async () => {
-//   try {
-//     await AsyncStorage.setItem('onBoarding', 'true');
-//   } catch (e) {
-//     showMessage({
-//       message: 'An Error Occurred, Please try again later',
-//       type: 'danger',
-//     });
-//   }
-// };
-
 const styles = StyleSheet.create({
   container: {
     height: Dimensions.get('screen').height * 0.1,
     justifyContent: 'space-around',
+    top: -35,
   },
   button: {
     width: 197,
@@ -77,6 +67,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     fontStyle: 'normal',
     lineHeight: 22,
+    marginTop: 15,
     letterSpacing: 0,
     textAlign: 'center',
     color: '#545454',

@@ -51,6 +51,7 @@ export default function SubCategoryButton({item}: Props) {
 const styles = StyleSheet.create({
   mainContainer: {
     backgroundColor: '#282828',
+    // paddingLeft: 10,
     alignItems: 'center',
     justifyContent: 'space-between',
   },
@@ -59,7 +60,7 @@ const styles = StyleSheet.create({
     margin: 10,
     fontFamily: 'NarkissBlock-Regular',
     fontSize: 17,
-    // fontWeight: '500',
+    // fontWeight: '',
     fontStyle: 'normal',
     letterSpacing: 0,
     textAlign: 'right',

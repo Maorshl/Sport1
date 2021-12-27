@@ -1,18 +1,19 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, View, Dimensions} from 'react-native';
 import VodCategory from './CategoriesDropdown/VodCategory';
 import Videos from './Videos/Videos';
 import ActiveVideo from './Videos/ActiveVideo';
+import SubCategory from './CategoriesDropdown/SubCategory';
 
-interface category {
+interface Category {
   name: string;
   id: string;
 }
 
 interface state {
   vod: {
-    categories: category[];
+    categories: Category[];
     loading: boolean;
     videos: [];
     activeVideo: {

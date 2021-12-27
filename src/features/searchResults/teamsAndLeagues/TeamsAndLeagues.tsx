@@ -8,6 +8,7 @@ import {
   Image,
 } from 'react-native';
 import TeamCircle from './TeamCircle';
+import colors from '../../../constants/colors';
 
 interface Team {
   logo: {url: string} | string;
@@ -39,7 +40,9 @@ export default function TeamsAndLeagues({data}: Props) {
 
 const styles = StyleSheet.create({
   text: {
-    padding: 10,
+    paddingRight: 12,
+    marginTop: 5,
+    marginBottom: 5,
     fontFamily: 'NarkissBlock-Regular',
     fontSize: 15,
     fontWeight: '600',
@@ -61,7 +64,7 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     shadowOpacity: 1,
     justifyContent: 'center',
-    alignItems: 'center',
+    alignItems: 'flex-end',
   },
   list: {
     alignSelf: 'center',
@@ -77,11 +80,10 @@ const ListEmptyComponent = () => {
     <View
       style={{
         flexDirection: 'row',
-        height: '100%',
-        width: '100%',
+        width: Dimensions.get('screen').width * 0.91,
         justifyContent: 'space-evenly',
         alignItems: 'center',
-        padding: '5%',
+        paddingRight: '10%',
       }}>
       <Text
         style={{
@@ -93,11 +95,12 @@ const ListEmptyComponent = () => {
           lineHeight: 20,
           letterSpacing: 0,
           textAlign: 'right',
+          color: 'rgb(160, 160, 160)',
         }}>
         לא נמצאו קבוצות או ליגות התואמות את החיפוש
       </Text>
       <Image
-        source={require('../assets/noResults.png')}
+        source={require('../assets/noReusltsTry.png')}
         style={{height: 40, width: 40}}
       />
     </View>

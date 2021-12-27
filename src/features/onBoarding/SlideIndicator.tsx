@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
     width: 8,
   },
   container: {
+    top: -35,
     height: Dimensions.get('screen').height * 0.1,
     flexDirection: 'row',
     width: 40,

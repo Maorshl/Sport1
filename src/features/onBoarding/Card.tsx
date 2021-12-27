@@ -3,6 +3,7 @@ import {
   Button,
   Dimensions,
   Image,
+  ImageSourcePropType,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -14,18 +15,23 @@ import SlideIndicator from './SlideIndicator';
 import LastCardButton from './LastCardButton';
 
 interface Props {
-  item: {title: string; text: string; image: string};
+  item: {title: string; text: string; image: ImageSourcePropType};
   index: number;
 }
 
-export default function Card({item, index}) {
+export default function Card({item, index}: Props) {
   return (
     <SafeAreaView>
       <View style={styles.container}>
         <Image source={item.image} height={1} />
-        <Text style={styles.title}>{item.title}</Text>
-        <View style={styles.divider}></View>
-        <Text style={styles.text}>{item.text}</Text>
+        <View>
+          <Text style={styles.title}>{item.title}</Text>
+          <View style={styles.divider}></View>
+        </View>
+        <Text style={styles.text}>
+          {item.text}
+          <Text style={{...styles.text, fontWeight: '500'}}>{item.bolded}</Text>
+        </Text>
       </View>
     </SafeAreaView>
   );
@@ -34,7 +40,7 @@ export default function Card({item, index}) {
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    height: '100%',
+    height: '95%',
     backgroundColor: '#edeef0',
     justifyContent: 'space-around',
     alignItems: 'center',
@@ -57,6 +63,7 @@ const styles = StyleSheet.create({
     fontStyle: 'normal',
     lineHeight: 22,
     letterSpacing: 0,
+    width: '70%',
     textAlign: 'center',
     color: '#545454',
   },
@@ -65,5 +72,7 @@ const styles = StyleSheet.create({
     height: 4,
     borderRadius: 3,
     backgroundColor: colors.TURQUOISE_GREEN,
+    alignSelf: 'center',
+    marginTop: 5,
   },
 });

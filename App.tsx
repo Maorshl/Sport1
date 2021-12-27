@@ -14,8 +14,12 @@ const App = () => {
   }, []);
   return (
     <Provider store={store}>
+      <StatusBar
+        // backgroundColor="#121212"
+        barStyle="dark-content"
+        translucent
+      />
       <SafeAreaProvider>
-        <StatusBar backgroundColor="black" />
         <Main />
         <FlashMessage position="top" />
       </SafeAreaProvider>

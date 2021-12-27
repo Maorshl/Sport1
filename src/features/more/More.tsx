@@ -50,7 +50,7 @@ function More() {
 
   return (
     <SafeAreaView>
-      <Spinner visible={loading} textContent={'Loading...'} />
+      <Spinner visible={loading} />
       <TopBar />
       <View style={{margin: 3, direction: 'rtl'}}>
         <Search

@@ -58,17 +58,20 @@ const _renderItem = ({item, index}) => {
 const carouselItems = [
   {
     title: 'האפליקציה החדשה של ספורט1!',
+    bolded: '',
     text: 'ברוך הבא לאפליקציית הספורט הראשונה בישראל שמותאמת במיוחד עבורך',
     image: require('./assets/pic1.png'),
   },
   {
     title: 'וידאו ללא הגבלה',
+    bolded: '',
     text: 'צפה בליגות הטובות בעולם בספריית הVOD הגדולה בישראל',
     image: require('./assets/pic2.png'),
   },
   {
     title: 'מה מעניין אותך?',
-    text: 'בחר את הקבוצות והליגות שלך ותהנה מחוויה מותאמת אישית, בחינם.',
+    bolded: 'בחינם.',
+    text: 'בחר את הקבוצות והליגות שלך ותהנה מחוויה מותאמת אישית, ',
     image: require('./assets/pic3.png'),
   },
 ];
@@ -76,7 +79,7 @@ const carouselItems = [
 const styles = StyleSheet.create({
   carouselContainer: {
     width: '100%',
-    height: '99%',
+    height: '100%',
     backgroundColor: '#edeef0',
     justifyContent: 'space-around',
     alignItems: 'center',
