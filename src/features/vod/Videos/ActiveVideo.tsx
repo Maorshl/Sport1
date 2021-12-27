@@ -1,5 +1,5 @@
 import moment from 'moment';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   StyleSheet,
   Text,
@@ -39,13 +39,24 @@ interface state {
 export default function ActiveVideo({video}: Props) {
   const {activeVideo} = useSelector((state: state) => state.vod);
   const [error, setError] = useState<boolean>(false);
+  useEffect(() => {
+    setError(false);
+  }, [activeVideo]);
 
   return (
     <View style={styles.mainContainer}>
-      <Image
-        source={{uri: activeVideo.featured_image.url}}
-        style={styles.image}
-      />
+      {error ? (
+        <Image
+          source={require('../assets/videoFallback.png')}
+          style={{...styles.image, resizeMode: 'contain'}}
+        />
+      ) : (
+        <Image
+          onError={() => setError(true)}
+          source={{uri: activeVideo.featured_image.url}}
+          style={styles.image}
+        />
+      )}
       <View style={styles.textContainer}>
         <TouchableOpacity>
           <Image
