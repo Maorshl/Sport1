@@ -49,42 +49,44 @@ function More() {
   };
 
   return (
-    <SafeAreaView>
-      <Spinner visible={loading} />
-      <TopBar />
-      <View style={{margin: 3, direction: 'rtl'}}>
-        <Search
-          placeholder="חפש קבוצות, ליגות וכתבות"
-          cancelTitle="בטל"
-          backgroundColor="rgb(242, 242, 242)"
-          cancelButtonStyle={styles.search}
-          inputStyle={{
-            ...styles.input,
-            borderColor: focused ? '#141414' : '#e9e9e9',
-          }}
-          searchIconCollapsedMargin={60}
-          direction={'rtl'}
-          middleWidth={250}
-          onSearch={onSearch}
-          onFocus={onFocus}
-          onCancel={onCancel}
-          inputHeight={45}
-          positionRightDelete={Dimensions.get('screen').width * 0.07}
-        />
+    <SafeAreaView style={{backgroundColor: 'rgb(20, 20, 20)'}}>
+      <View style={{backgroundColor: '#f2f2f2'}}>
+        <Spinner visible={loading} />
+        <TopBar />
+        <View style={{margin: 3, direction: 'rtl'}}>
+          <Search
+            placeholder="חפש קבוצות, ליגות וכתבות"
+            cancelTitle="בטל"
+            backgroundColor="rgb(242, 242, 242)"
+            cancelButtonStyle={styles.search}
+            inputStyle={{
+              ...styles.input,
+              borderColor: focused ? '#141414' : '#e9e9e9',
+            }}
+            searchIconCollapsedMargin={60}
+            direction={'rtl'}
+            middleWidth={250}
+            onSearch={onSearch}
+            onFocus={onFocus}
+            onCancel={onCancel}
+            inputHeight={45}
+            positionRightDelete={Dimensions.get('screen').width * 0.07}
+          />
+        </View>
+        {searched && !loading ? (
+          <View style={{maxHeight: '100%'}}>
+            <Results focused={focused} />
+          </View>
+        ) : (
+          <View style={styles.background}>
+            {categories.length ? (
+              <CategoriesList focused={focused} categories={categories} />
+            ) : (
+              <></>
+            )}
+          </View>
+        )}
       </View>
-      {searched && !loading ? (
-        <View style={{maxHeight: '100%'}}>
-          <Results focused={focused} />
-        </View>
-      ) : (
-        <View style={styles.background}>
-          {categories.length ? (
-            <CategoriesList focused={focused} categories={categories} />
-          ) : (
-            <></>
-          )}
-        </View>
-      )}
     </SafeAreaView>
   );
 }
@@ -93,6 +95,7 @@ const styles = StyleSheet.create({
   background: {
     backgroundColor: '#f2f2f2',
     width: Dimensions.get('screen').width,
+    height: Dimensions.get('screen').height * 0.8,
   },
   search: {
     color: 'rgb(78, 78, 78)',

@@ -90,6 +90,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'flex-end',
     padding: 25,
+    zIndex: 100,
   },
   button: {
     fontFamily: 'NarkissBlock-Regular',

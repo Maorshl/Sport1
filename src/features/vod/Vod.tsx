@@ -28,7 +28,7 @@ const Vod = () => {
   }, []);
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={{backgroundColor: '#121212'}}>
       {loading ? <Spinner visible={loading} /> : <VodBody />}
     </SafeAreaView>
   );
