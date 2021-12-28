@@ -6,6 +6,7 @@ import {VodPageCategories} from './action/vod.action';
 import VodCategory from './CategoriesDropdown/VodCategory';
 import Spinner from 'react-native-loading-spinner-overlay';
 import VodBody from './VodBody';
+import colors from '../../constants/colors';
 
 interface category {
   name: string;
@@ -29,7 +30,15 @@ const Vod = () => {
 
   return (
     <SafeAreaView style={{backgroundColor: '#121212'}}>
-      {loading ? <Spinner visible={loading} /> : <VodBody />}
+      {loading ? (
+        <Spinner
+          visible={loading}
+          color={colors.TURQUOISE_GREEN}
+          animation="slide"
+        />
+      ) : (
+        <VodBody />
+      )}
     </SafeAreaView>
   );
 };

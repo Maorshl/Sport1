@@ -9,6 +9,7 @@ import Search from 'react-native-search-box';
 import CategoriesList from './CategoriesList';
 import Results from '../searchResults/Results';
 import Spinner from 'react-native-loading-spinner-overlay';
+import colors from '../../constants/colors';
 
 function More() {
   const [focused, setFocused] = useState<boolean>(false);
@@ -51,7 +52,11 @@ function More() {
   return (
     <SafeAreaView style={{backgroundColor: 'rgb(20, 20, 20)'}}>
       <View style={{backgroundColor: '#f2f2f2'}}>
-        <Spinner visible={loading} />
+        <Spinner
+          visible={loading}
+          color={colors.TURQUOISE_GREEN}
+          animation="slide"
+        />
         <TopBar />
         <View style={{margin: 3, direction: 'rtl'}}>
           <Search
