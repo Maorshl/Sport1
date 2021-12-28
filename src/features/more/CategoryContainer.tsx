@@ -77,6 +77,7 @@ const CategoryContainer = ({item}: Props) => {
             },
             shadowRadius: 3,
             shadowOpacity: 1,
+            elevation: 5,
           }}>
           <FlatList
             style={styles.list}

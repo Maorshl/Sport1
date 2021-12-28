@@ -49,6 +49,7 @@ const styles = StyleSheet.create({
   list: {
     height: 30,
     direction: 'rtl',
+    flexDirection: 'row-reverse',
     width: Dimensions.get('screen').width,
     // marginBottom: Dimensions.get('screen').height * 0.02,
   },

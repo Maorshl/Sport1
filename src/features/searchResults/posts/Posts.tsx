@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
   text: {
     marginTop: 20,
     paddingRight: 13,
+    marginBottom: 2,
     // marginRight: Dimensions.get('screen').width * 0.033,
     fontFamily: 'NarkissBlock-Bold',
     fontSize: 15,
