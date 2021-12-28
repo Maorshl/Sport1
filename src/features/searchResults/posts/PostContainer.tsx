@@ -61,9 +61,9 @@ const styles = StyleSheet.create({
   },
   text: {
     maxWidth: '100%',
-    fontFamily: 'NarkissBlock-Regular',
+    fontFamily: 'NarkissBlock-Bold',
     fontSize: 16,
-    fontWeight: '600',
+    // fontWeight: '600',
     fontStyle: 'normal',
     lineHeight: 19,
     letterSpacing: 0,

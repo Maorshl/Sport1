@@ -84,6 +84,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     alignItems: 'center',
     padding: 10,
+    // flexDirection: 'row-reverse',
   },
   buttonContainer: {
     width: '100%',

@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   Dimensions,
+  Platform,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -42,7 +43,10 @@ const styles = StyleSheet.create({
   container: {
     height: Dimensions.get('screen').height * 0.1,
     justifyContent: 'space-around',
-    top: -35,
+    top:
+      Platform.OS === 'ios'
+        ? -Dimensions.get('screen').height * 0.05
+        : -Dimensions.get('screen').height * 0.03,
   },
   button: {
     width: 197,

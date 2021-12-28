@@ -75,7 +75,11 @@ function More() {
             onFocus={onFocus}
             onCancel={onCancel}
             inputHeight={45}
-            positionRightDelete={Dimensions.get('screen').width * 0.07}
+            positionRightDelete={
+              Platform.OS === 'ios'
+                ? Dimensions.get('screen').width * 0.07
+                : Dimensions.get('screen').width * 0.75
+            }
           />
         </View>
         {searched && !loading ? (

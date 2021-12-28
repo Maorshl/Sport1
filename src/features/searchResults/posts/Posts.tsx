@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Dimensions,
   Image,
+  Platform,
 } from 'react-native';
 import PostContainer from './PostContainer';
 import {Post} from './PostContainer';
@@ -40,9 +41,9 @@ const styles = StyleSheet.create({
     marginTop: 20,
     paddingRight: 13,
     // marginRight: Dimensions.get('screen').width * 0.033,
-    fontFamily: 'NarkissBlock-Regular',
+    fontFamily: 'NarkissBlock-Bold',
     fontSize: 15,
-    fontWeight: '600',
+    // fontWeight: '600',
     fontStyle: 'normal',
     lineHeight: 20,
     letterSpacing: 0,
@@ -89,5 +90,13 @@ const ListEmptyComponent = () => {
 };
 
 const footerComponent = () => {
-  return <View style={{height: 40}}></View>;
+  return (
+    <View
+      style={{
+        height:
+          Platform.OS === 'ios'
+            ? Dimensions.get('screen').height * 0.02
+            : Dimensions.get('screen').height * 0.01,
+      }}></View>
+  );
 };

@@ -56,9 +56,9 @@ const styles = StyleSheet.create({
   text: {
     width: 75,
     height: 24,
-    fontFamily: 'NarkissBlock-Regular',
+    fontFamily: 'NarkissBlock-Bold',
     fontSize: 12,
-    fontWeight: '500',
+    // fontWeight: '500',
     fontStyle: 'normal',
     lineHeight: 12,
     letterSpacing: 0,
